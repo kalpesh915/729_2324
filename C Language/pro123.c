@@ -5,19 +5,19 @@
     for loop
 
     1
-    12
-    123
-    1234
-    12345
-
+    10
+    101
+    1010
+    10101
 */
 
 void main(){
-    int i, j;
+    int i,j;
 
     for(i=1; i<=5; i++){
+
         for(j=1; j<=i; j++){
-            printf("%d", j);
+            printf("%d", j%2);
         }
         printf("\n");
     }
