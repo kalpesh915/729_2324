@@ -1,0 +1,222 @@
+1 C Program for Neon Number
+Problem: Write a C program to check whether the number is Neon or not.
+
+A number is called a Neon Number if the sum of digits of the square of the number is equal to the original number.
+
+#include <stdio.h>
+ 
+int main()
+{
+    int num, digit, sum =0;
+    
+    //Input a number
+    printf("Enter a number to check for neon number: \n");
+    scanf("%d",&num);
+        
+    //Calculate square of the input
+    int square = num*num;
+    
+    //Sum the digits of the square
+    while(square!=0){
+        digit = square%10;
+        sum += digit;
+        square = square/10;
+    }
+    
+    //Check if sum is equal to the input number
+    if(sum == num)
+        printf("Neon Number \n");
+    else
+        printf("Not a Neon Number \n");
+ 
+    return 0;
+}
+
+
+2 C Program for Magic Number
+Problem: Write a C program to check whether a number is Magic Number or not.
+
+A magic number is that number whose sum of the digits is when multiplied by the reverse of the same sum results back the original number.
+
+Example: 1729
+
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+    int num, temp, rev=0, digit, sumOfDigits=0;
+ 
+    printf("Enter a Number \n");
+    scanf("%d",&num);
+    
+    
+    temp = num;
+ 
+    //Calculating Sum of digits
+    while(temp > 0){
+        //Extract digit and add them
+        sumOfDigits += temp % 10;  
+        temp = temp / 10;      
+    }
+
+ 
+   temp = sumOfDigits;
+
+    //Compute reverse of Sum of Digits
+    while( temp > 0){
+        rev = rev*10 + temp % 10; 
+        temp = temp / 10;
+    }
+ 
+    if(rev*sumOfDigits == num)
+        printf("Magic Number \n");
+    else
+        printf("Not a Magic Number \n");
+ 
+    return 0;
+}
+
+
+3 C Program for Perfect Number
+Summary: In this programming example, we will learn to check the perfect number in C and also learn to print all perfect numbers in the given range.
+
+If the sum of all factors of a number ( exclusive itself ) is equal to the original number, then it’s a Perfect number. E.g. 6, 28, etc.
+
+#include <stdio.h>
+ 
+int main()
+{
+    int num, sum =0, i;
+ 
+    printf("Enter a Number \n");
+    scanf("%d",&num);
+ 
+    //A number greater than num/2 cannot be the divisor
+    for(int i=1; i<=num/2; i++){
+        //sum all the divisor
+        if(num%i == 0)
+            sum += i;   
+    }
+ 
+    if(sum == num)
+        printf("Perfect Number \n");
+    else
+        printf("Not a Perfect Number \n");
+ 
+    return 0;
+}
+
+4 C Program for Strong Number
+Problem: Write a C program to check whether the given number is Strong or not.
+
+A strong Number is a number whose sum of the factorial of digits is equal to its original number, e.g 145.
+1 = 1
+4 = 4 * 3 * 2 * 1 = 24
+5 = 5 * 4 * 3 * 2 * 1 = 120
+
+#include <stdio.h>
+#include <stdlib.h>
+ 
+int main()
+{
+    int num, digit, sum=0, i, fact=1;
+    printf("Enter a number \n");
+    scanf("%d",&num);
+ 
+    int temp = num; //Copying original number
+ 
+    while(temp>0){
+        digit = temp%10;
+ 
+        //Calculating factorial of digit
+        fact=1;
+        for(i=1; i<=digit; i++){
+            fact = fact*i;
+        }
+ 
+        //Adding Factorial
+        sum += fact;
+ 
+        temp = temp/10;
+    }
+ 
+    if(sum == num)
+        printf("Strong Number \n");
+    else
+        printf("Not a Strong Number \n");
+ 
+    return 0;
+}
+
+5 C Program for Automorphic Number
+An Automorphic number is a number whose square ends with the same digits as the original number. E.g – 5, 6, 76 etc.
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+ 
+int main()
+{
+    int num, sqr, temp, last;
+    int n =0;
+ 
+    printf("Enter a number \n");
+    scanf("%d",&num);
+ 
+    sqr = num*num;  //calculating square of num
+    temp = num;
+ 
+    //Counting number of digits
+    while(temp>0){
+        n++;
+        temp = temp/10;
+    }
+ 
+    //Extracting last n digits
+    int den = floor(pow(10,n));
+    last = sqr % den;
+ 
+    if(last == num)
+        printf("Automorphic number \n");
+    else
+        printf("Not Automorphic \n");
+ 
+    return 0;
+}
+
+6 C Program for Harshad Number (Niven)
+
+Problem: Write a C program to check whether a number is a Harshad Number or not.
+
+Harshad number (or Niven) is an integer that is divisible by the sum of its digits.
+
+Example: – 21, 111, 153.
+
+#include<stdio.h>
+#include<conio.h>
+ 
+int main()
+{
+    int number,original_number,sum=0;
+    int digit;
+ 
+    printf("Enter a number \n");
+    scanf("%d",&original_number);
+ 
+    number=original_number;//copying the original number
+ 
+    while(number!=0)
+    {
+        digit=number%10;
+        sum+=digit;
+        number=number/10;
+    }
+ 
+    if(original_number%sum==0)
+        printf("HARSHAD NUMBER \n");
+    else
+        printf("NOT A HARSHAD NUMBER");
+ 
+    return 0;
+}
