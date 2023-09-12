@@ -10,6 +10,10 @@ enum boolean {false, true};
 void main(){
     enum boolean status;
 
-    status = false;
-    printf("\n status is %d", status);
+    status = true;
+    if(status){
+        printf("\n True");
+    }else{
+        printf("\n False");
+    }
 }
