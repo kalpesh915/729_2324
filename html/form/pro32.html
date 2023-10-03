@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        must set method as post and enctype=multipart/form-data
+     -->
+    <form action="data.php" method="post" enctype="multipart/form-data">
+        Select File for Uplaod:
+        <input type="file" multiple accept=".pdf">
+        <input type="submit" value="Send Data">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+
+</html>
