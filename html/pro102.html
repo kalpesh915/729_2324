@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+</head>
+<body>
+    <canvas height="500" width="500" id="canvas1" style="border: 1px solid black;"></canvas>
+</body>
+</html>
+
+<script>
+    let canvas1 = document.getElementById("canvas1");
+    let context = canvas1.getContext("2d");
+    context.moveTo(100, 100);
+    context.lineTo(400, 400);
+    context.stroke();
+</script>
