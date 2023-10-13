@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Box example without z index property  */
+        
+        .container{
+            position: relative;
+            width: 1000px;
+            height: 400px;
+            border: 10px solid brown;
+        }
+
+        .blackbox{
+            position: absolute;
+            left: 200px;
+            top: 100px;
+            border: 10px solid black;
+            width: 200px;
+            height: 100px;
+        }
+
+        .bluebox{
+            position: absolute;
+            left: 250px;
+            top: 50px;
+            border: 10px solid blue;
+            width: 300px;
+            height: 200px;
+        }
+
+        .redbox{
+            position: absolute;
+            left: 350px;
+            top: 150px;
+            border: 10px solid red;
+            width: 300px;
+            height: 200px;
+        }
+
+        .orangebox{
+            position: absolute;
+            left: 50px;
+            top: 10px;
+            border: 10px solid orange;
+            width: 400px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="blackbox"></div>
+        <div class="bluebox"></div>
+        <div class="redbox"></div>
+        <div class="orangebox"></div>
+    </div>
+</body>
+
+</html>
