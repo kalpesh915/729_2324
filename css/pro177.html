@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        .header,
+        .footer {
+            background-color: gray;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .column {
+            float: left;
+            padding: 15px;
+        }
+
+        .menu {
+            width: 25%;
+        }
+
+        .content {
+            width: 75%;
+        }
+
+        .clearfix {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .menu li {
+            padding: 8px;
+            margin-bottom: 8px;
+            background-color: #33b5e5;
+            color: #ffffff;
+        }
+
+        .menu li:hover {
+            background-color: #0099cc;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Website Header</h1>
+    </header>
+
+    <main class="clearfix">
+        <aside class="column menu">
+            <ul>
+                <li>Heading 1</li>
+                <li>Heading 2</li>
+                <li>Heading 3</li>
+                <li>Heading 4</li>
+                <li>Heading 5</li>
+            </ul>
+        </aside>
+
+        <section class="column content">
+            <h1>This is webpage data</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam culpa quibusdam libero incidunt, dolorum
+                doloribus atque quod doloremque enim nostrum pariatur excepturi, modi illum ut ratione quaerat unde quis
+                officiis?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam culpa quibusdam libero incidunt, dolorum
+                doloribus atque quod doloremque enim nostrum pariatur excepturi, modi illum ut ratione quaerat unde quis
+                officiis?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam culpa quibusdam libero incidunt, dolorum
+                doloribus atque quod doloremque enim nostrum pariatur excepturi, modi illum ut ratione quaerat unde quis
+                officiis?</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <h1>Website Footer</h1>
+    </footer>
+</body>
+
+</html>
