@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            border: 1px solid black;
+            padding: 20px;
+        }
+
+        .container img{
+            float: right;
+        }
+
+        .clearfix::after{
+            clear: both;
+            content:"";
+            display: table;
+        }
+    </style>
+</head>
+<body>
+    <div class="container clearfix">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur omnis deleniti molestiae ad ipsum odit soluta eos voluptatem quasi fugiat, consectetur cupiditate assumenda commodi et aut nesciunt maiores totam reiciendis! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam natus earum velit sed aspernatur magni fugiat atque quam alias dignissimos. Quasi molestias officia similique blanditiis, in vero laboriosam aliquid praesentium! <img src="images/img_avatar.png" height="200">
+    </div>
+</body>
+</html>
