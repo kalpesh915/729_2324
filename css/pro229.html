@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul{
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+            width: 200px;
+            background-color: #cccccc;
+        }
+
+        li{
+            border-bottom: 1px solid #555;
+        }
+
+        li a{
+            display: block;
+            color: #000000;
+            padding: 8px 16px;
+            /* 
+                8px for top bottom 
+                16px right and left
+            */
+            text-decoration: none;
+            text-align: center;
+        }
+
+        li a.active{
+            background-color: green;
+        }
+
+        /* following effect apply on a tag inside the li without .active class */
+        li a:hover:not(.active){
+            background-color: #cc00cc;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Feedback</a></li>
+        <li><a href="#">Login</a></li>
+    </ul>
+</body>
+</html>
