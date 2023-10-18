@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+            selector select p tag with title attribute only
+        */
+        p[title|="red"]{
+            background-color: yellow;
+            color: red;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p title="red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti reiciendis tempore nostrum recusandae quaerat, blanditiis voluptatum fugiat nisi dignissimos odio, harum, minima quasi pariatur voluptates inventore? Sint vero voluptatem quisquam!</p>
+    <p title="Red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti reiciendis tempore nostrum recusandae quaerat, blanditiis voluptatum fugiat nisi dignissimos odio, harum, minima quasi pariatur voluptates inventore? Sint vero voluptatem quisquam!</p>
+    <p title="red flower">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti reiciendis tempore nostrum recusandae quaerat, blanditiis voluptatum fugiat nisi dignissimos odio, harum, minima quasi pariatur voluptates inventore? Sint vero voluptatem quisquam!</p>
+    <p title="flower red">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti reiciendis tempore nostrum recusandae quaerat, blanditiis voluptatum fugiat nisi dignissimos odio, harum, minima quasi pariatur voluptates inventore? Sint vero voluptatem quisquam!</p>
+    <p title="flower red flower">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti reiciendis tempore nostrum recusandae quaerat, blanditiis voluptatum fugiat nisi dignissimos odio, harum, minima quasi pariatur voluptates inventore? Sint vero voluptatem quisquam!</p>
+    <p title="red-flower">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti reiciendis tempore nostrum recusandae quaerat, blanditiis voluptatum fugiat nisi dignissimos odio, harum, minima quasi pariatur voluptates inventore? Sint vero voluptatem quisquam!</p>
+    <p title="rednotred">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti reiciendis tempore nostrum recusandae quaerat, blanditiis voluptatum fugiat nisi dignissimos odio, harum, minima quasi pariatur voluptates inventore? Sint vero voluptatem quisquam!</p>
+    <p title="notrednot">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti reiciendis tempore nostrum recusandae quaerat, blanditiis voluptatum fugiat nisi dignissimos odio, harum, minima quasi pariatur voluptates inventore? Sint vero voluptatem quisquam!</p>
+</body>
+</html>

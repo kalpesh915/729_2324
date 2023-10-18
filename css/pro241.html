@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dropdown{
+            position: relative;
+            display: inline-block;
+            /* float: right; */
+        }
+
+        .dropbtn{
+            background-color: #4caf50;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown-content{
+            display: none;
+            position: absolute;
+            width: 160px;
+            background-color: #f9f9f9;
+            box-shadow: 2px 2px 2px gray;
+            z-index: 1;
+            /* right: 0px; */
+        }
+
+        .dropdown-content a{
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+            color: black;
+        }
+
+        .dropdown-content a:hover{
+            background-color: #f1f111;
+        }
+
+        .dropdown:hover .dropdown-content{
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn{
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">Courses</button>
+        <div class="dropdown-content">
+            <a href="#">C</a>
+            <a href="#">HTML</a>
+            <a href="#">CSS</a>
+            <a href="#">JS</a>
+            <a href="#">PHP</a>
+            <a href="#">Node</a>
+        </div>
+    </div>
+</body>
+</html>
