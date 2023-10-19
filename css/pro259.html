@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type="text"]{
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0px;
+            box-sizing: border-box;
+            border: none;
+            border-bottom: 2px solid red;
+            background-color: #4caf50;
+            color: white;
+            /* element width contains actual width + padding + border */
+        }
+
+        input[type="text"]:focus{
+            border: none;
+            outline: none;
+            border-bottom: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="fn">Enter First Name</label>
+        <input type="text" name="fname" id="fn" required>
+        <label for="ln">Enter Last Name</label>
+        <input type="text" name="lname" id="ln" required>
+        <input type="submit" value="Send Data">
+    </form>
+</body>
+</html>
