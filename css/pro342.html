@@ -11,13 +11,25 @@
             height: 500px;
             border: 1px solid black;
             box-sizing: border-box;
-            background-image: conic-gradient(red, white , black, yellow );
+            background-image: repeating-conic-gradient(red 5%, yellow 10%, black 15%);
+            position: relative;
+        }
+
+        div h1{
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            top: 20%;
+            color: gainsboro;
+            font-size: 60px;
         }
     </style>
 </head>
 
 <body>
-    <div></div>
+    <div>
+        <h1>Example of Gradients</h1>
+    </div>
 </body>
 
 </html>
