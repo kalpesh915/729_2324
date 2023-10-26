@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            color: yellow;
+            font-size: 30px;
+            text-align: center;
+            transition: all 5s;
+            /* P0 is (0, 0) and represents the initial time and the initial state, P3 is (1, 1) and represents the final time and the final state. */
+            transition-timing-function: cubic-bezier(0, 0.9, 0.365, 1);
+        }
+
+        div:hover{
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        Transform
+    </div>
+</body>
+</html>

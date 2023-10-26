@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button{
+            display: inline-block;
+            width: 120px;
+            padding: 20px;
+            background-color: green;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            position: relative;
+            left: 0px;
+            top: 0px;
+            animation: button1 5s;
+        }
+
+        @keyframes button1 {
+            0%{
+                
+            }
+
+            10%{
+                transform: rotate(30deg);
+            }
+
+            50%{
+                left: 500px;
+            }
+
+            75%{
+                transform: rotate(360deg);
+            }
+
+            100%{
+                left: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="button">Demo Text</button>
+</body>
+</html>
