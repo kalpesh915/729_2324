@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        :root{
+            --blue : #1e90ff;
+            --white : #ffffff;
+        }
+
+        body{
+            background-color: var(--blue);
+        }
+
+        h2{
+            border-bottom: 1px solid var(--blue);
+        }
+
+        .container{
+            color: var(--blue);
+            background-color: var(--white);
+            padding: 15px;
+        }
+
+        .button{
+            /* overwrite variables with local variables */
+            --blue : darkblue;
+            --white : wheat;
+            background-color: var(--white);
+            color: var(--blue);
+            border: 1px solid var(--blue);
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Smart way of design</h1>
+
+    <div class="container">
+        <h2>Welcome to world of CSS</h2>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi omnis nisi illum quaerat sunt tempore exercitationem eos vel illo consequuntur atque dignissimos, est et asperiores velit maiores voluptas numquam! Ex.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt cupiditate animi porro hic quis harum velit enim eum vitae possimus, accusantium dignissimos. Ducimus repellat fugiat adipisci, ipsa molestiae ipsam corporis.</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius natus cum, eos aperiam laboriosam, reprehenderit, ab modi aspernatur saepe dolor quis totam placeat sequi mollitia inventore. Placeat, sapiente sit. Ducimus.</p>
+
+        <button class="button">Yes</button>
+        <button class="button">No</button>
+    </div>
+</body>
+</html>

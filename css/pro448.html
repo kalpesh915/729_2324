@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.pagination{
+            display: inline-block;
+        }
+
+        div.pagination a{
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            transition: all 0.5s;
+            margin: 0px 2px;
+        }
+
+        div.pagination a:first-child{
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        div.pagination a:last-child{
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        div.pagination .active{
+            background-color: green;
+            color: white;
+        }
+
+        div.pagination a:hover:not(.active){
+            background-color: #333333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a href="#" class="active">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">&raquo;</a>
+    </div>
+</body>
+</html>
