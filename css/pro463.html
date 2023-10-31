@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: tan;
+        }
+
+        
+        /* the following code will not work as expected because HTML page line by line interpretade by browser so last rule of 992px read at end of style and apply style according to 992px ratehr than 600px */
+
+        /* 
+            when you set max-width must apply screen size rules in descending order
+            1200 / 992 / 760 / 540 / 480
+
+            when you set min-width must apply screen size rules in ascening order
+            480 / 540 / 760 / 992 / 1200
+        */
+
+        /* On screens that are 600px or less, set the background color to olive */
+        @media screen and (max-width: 600px) {
+            body {
+                background-color: olive;
+            }
+        }
+
+        /* On screens that are 992px or less, set the background color to blue */
+        @media screen and (max-width: 992px) {
+            body {
+                background-color: blue;
+            }
+        }
+
+    </style>
+</head>
+
+<body onresize="getWidth()">
+    <h1 id="op"></h1>
+</body>
+
+<script>
+    function getWidth() {
+        document.getElementById("op").innerHTML = window.innerWidth;
+    }
+</script>
+
+</html>

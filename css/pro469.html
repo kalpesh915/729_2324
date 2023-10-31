@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* color applied when screen size greater than 600px and less than 900px */
+        @media screen and (min-width:600px) and (max-width:900px){
+            body{
+                background-color: coral;
+            }
+        }
+    </style>
+</head>
+
+<body onresize="getWidth()">
+    <h1 id="op"></h1>
+</body>
+
+<script>
+    function getWidth() {
+        document.getElementById("op").innerHTML = window.innerWidth;
+    }
+</script>
+
+</html>

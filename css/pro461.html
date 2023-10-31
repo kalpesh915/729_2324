@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        .wrapper{
+
+        }
+
+        .clearfix::after{
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .menu{
+            width: 30%;
+            float: left;
+        }
+
+        .content{
+            width: 70%;
+            float: left;
+            padding: 20px;
+        }
+
+        .menu ul{
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .menu ul li{
+            background-color: brown;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin: 10px 0px;
+        }
+
+        /* menu, content class become to 100% when screen size is less than 700px */
+
+        @media screen and (max-width:700px){
+            .menu, .content{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="menu">
+            <ul>
+                <li>Link 1</li>
+                <li>Link 2</li>
+                <li>Link 3</li>
+                <li>Link 4</li>
+                <li>Link 5</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h1>Welcome to CSS Responsive web </h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, culpa numquam. Tempora assumenda minima optio nemo deleniti quaerat eligendi cum repellendus eaque voluptatibus ab expedita totam eius quod, consequatur porro!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, culpa numquam. Tempora assumenda minima optio nemo deleniti quaerat eligendi cum repellendus eaque voluptatibus ab expedita totam eius quod, consequatur porro!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, culpa numquam. Tempora assumenda minima optio nemo deleniti quaerat eligendi cum repellendus eaque voluptatibus ab expedita totam eius quod, consequatur porro!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, culpa numquam. Tempora assumenda minima optio nemo deleniti quaerat eligendi cum repellendus eaque voluptatibus ab expedita totam eius quod, consequatur porro!</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, culpa numquam. Tempora assumenda minima optio nemo deleniti quaerat eligendi cum repellendus eaque voluptatibus ab expedita totam eius quod, consequatur porro!</p>
+        </div>
+    </div>    
+</body>
+</html>
+
