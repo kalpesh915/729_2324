@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            font-size: 30px;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+
+        .item-1 {
+            padding: 30px;
+            flex: 50%;
+            background-color: brown;
+            color: white;
+        }
+
+        .item-2 {
+            padding: 30px;
+            flex: 50%;
+            background-color: purple;
+            color: white;
+        }
+
+        /* flow direction row to column when screen size 600px <  */
+
+        @media screen and (max-width:800px){
+            .item-1, .item-2{
+                flex: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item-1"><span>01</span></div>
+        <div class="item-2"><span>02</span></div>
+    </div>
+</body>
+
+</html>
