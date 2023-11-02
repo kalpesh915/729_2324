@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row::after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+
+        /* Default layout for mobile all the columns with 100% width by default */
+        [class*="col-"] {
+            padding: 15px;
+            border: 1px solid black;
+            float: left;
+            width: 100%;
+        }
+
+        /* Create columns when screen size more than 700px (tablet) */
+
+        @media screen and (min-width:700px) {
+            .col-t-1 { width: 8.33%; }
+            .col-t-2 { width: 16.66%; }
+            .col-t-3 { width: 25%; }
+            .col-t-4 { width: 33.33%; }
+            .col-t-5 { width: 41.66%; }
+            .col-t-6 { width: 50%; }
+            .col-t-7 { width: 58.33%; }
+            .col-t-8 { width: 66.66%; }
+            .col-t-9 { width: 75%; }
+            .col-t-10 { width: 83.33%; }
+            .col-t-11 { width: 91.66%; }
+            .col-t-12 { width: 100%; }
+
+        }
+
+        /* Create columns when screen size more than 1000px (desktop) */
+
+        @media screen and (min-width:1000px) {
+            .col-d-1 { width: 8.33%; }
+            .col-d-2 { width: 16.66%; }
+            .col-d-3 { width: 25%; }
+            .col-d-4 { width: 33.33%; }
+            .col-d-5 { width: 41.66%; }
+            .col-d-6 { width: 50%; }
+            .col-d-7 { width: 58.33%; }
+            .col-d-8 { width: 66.66%; }
+            .col-d-9 { width: 75%; }
+            .col-d-10 { width: 83.33%; }
+            .col-d-11 { width: 91.66%; }
+            .col-d-12 { width: 100%; }
+
+        }
+
+        .header {
+            background-color: #9933cc;
+            color: #ffffff;
+            padding: 15px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            padding: 8px;
+            margin-bottom: 7px;
+            background-color: #33b5e5;
+            color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .menu li:hover {
+            background-color: #0099cc;
+        }
+
+        /* make all the columns to 100% when screen size is less than 700 px */
+
+        @media screen and (max-width:700px) {
+            [class*="col-"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Website Header</h1>
+    </header>
+
+    <div class="row">
+        <div class="col-d-2 col-t-3 menu">
+            <ul>
+                <li>Rajkot</li>
+                <li>Surat</li>
+                <li>Baroda</li>
+                <li>Ahamdabad</li>
+                <li>Bhuj</li>
+            </ul>
+        </div>
+
+        <div class="col-d-10 col-t-9">
+            <h1>Website Content</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam modi voluptate tempore minima laudantium
+                iure similique mollitia. Optio, rerum vel odio voluptas est culpa molestiae aut blanditiis, temporibus
+                similique quaerat?</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et odio sed itaque nostrum minima, eos
+                perspiciatis soluta ut ex natus ad deleniti aspernatur cumque enim labore fuga excepturi porro. Ullam!
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
