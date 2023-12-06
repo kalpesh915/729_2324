@@ -1,0 +1,46 @@
+/* Services */
+.icon-box{
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.icon-box:hover{
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+}
+
+.icon{
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 50%;
+    padding: 30px;
+}
+
+.icon-box .icon:hover{
+    background-color: gray;
+    color: white;
+}
+
+/* Team */
+
+.team-box{
+    text-align: center;
+}
+
+.team-box p{
+    text-align: justify;
+}
+
+.team-box a{
+    color: black;
+    font-size: 20px;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.team-box a:hover{
+    background-color: black;
+    color: white;
+}
