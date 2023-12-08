@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="timer()">
+    <h1 id="op"></h1>
+</body>
+</html>
+
+<script>
+    let animation, op;
+
+    op = document.getElementById("op");
+
+    function timer(){
+        setInterval(getTime, 5000);
+    }
+
+    function getTime(){
+        op.innerHTML = Date();
+    }
+</script>

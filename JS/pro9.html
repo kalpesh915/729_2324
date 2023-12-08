@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="op">Greeting Message</h1>
+    <button onclick="msg('Udit')">Click Me</button>
+</body>
+</html>
+
+<script>
+    function msg(fname){
+        document.getElementById("op").innerHTML= "Welcome "+fname+" to World of JS";
+    }
+</script>
