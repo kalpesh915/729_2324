@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="range" min="0" max="100" step="5" value="10" id="length" onchange="getSize(this.value)">
+    <hr>
+    <h1 id="op"></h1>
+</body>
+</html>
+
+<script>
+    var op = document.getElementById("op");
+    function getSize(length){
+        //document.getElementById("op").innerHTML = length;
+        op.innerHTML = length;
+    }
+</script>

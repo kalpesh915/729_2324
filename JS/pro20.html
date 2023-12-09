@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="range" min="10" max="500" step="5" value="10" id="length" onchange="getSize(this.value)">
+    <hr>
+    <img src="images/pic_bulboff.gif" id="image1">
+</body>
+</html>
+
+<script>
+    var op = document.getElementById("image1");
+
+    function getSize(length){
+        op.style.width = length+"px";
+    }
+</script>

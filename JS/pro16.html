@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="hide()">Hide</button>
+    <button onclick="show()">Show</button>
+    <hr>
+    <p id="op">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat qui veniam a perspiciatis necessitatibus cumque similique reprehenderit distinctio rem optio officia, molestias delectus corrupti. Dolor placeat rerum non laborum fugit?</p>
+</body>
+</html>
+
+<script>
+    var op = document.getElementById("op");
+
+    function hide(){
+        op.style.display = "none";
+    }
+
+    function show(){
+        op.style.display = "block";
+    }
+</script>
