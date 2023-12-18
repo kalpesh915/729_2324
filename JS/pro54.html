@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    let x = 100; // global
+
+    document.write("<hr> value of x is "+x);
+
+    {
+        let x = 150; ///create new x variable for current scope
+        document.write("<hr> value of x is (in block )"+x);
+    }
+
+    function msg(){
+        document.write("<hr> value of x is (in function)"+x);
+    }
+    msg();
+    document.write("<hr> value of x is end of code "+x);
+</script>
