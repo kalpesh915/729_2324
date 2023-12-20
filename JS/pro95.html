@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    /*
+        const | let object_name = {
+            property_name : property_value,
+            property_name : property_value,
+            property_name : property_value,
+            property_name : property_value,
+            property_name_N : property_value_N
+        }
+    */ 
+    const student = {
+        "roll" : 123,
+        "fname" : "Pandya",
+        "lname" : "Gaurav",
+        "city" : "Rajkot",
+        "state" : "Gujarat",
+        "getData" : function(){
+            /*
+                error : all the variables considered as a local variables of getData function
+                use this keyword to access variables of current object
+                this keyword reffer to current object
+            */ 
+            document.write("<hr>"+this.roll+" "+this.fname+" "+this.lname+" "+this.city+" "+this.state);        
+        }
+    }
+
+    student.getData();
+
+</script>
