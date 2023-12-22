@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Enter Any Number : <input type="number" onkeyup="convert(this.value)">
+    <hr>
+    <p id="bin"></p>
+    <p id="dec"></p>
+    <p id="oct"></p>
+    <p id="hex"></p>
+</body>
+
+</html>
+
+<script>
+    function convert(value){
+        value = Number(value);
+        document.getElementById("bin").innerHTML = value.toString(2);
+        document.getElementById("dec").innerHTML = value.toString(10);
+        document.getElementById("oct").innerHTML = value.toString(8);
+        document.getElementById("hex").innerHTML = value.toString(16);
+    }
+</script>

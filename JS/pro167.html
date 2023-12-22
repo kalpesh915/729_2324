@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table border="1" align="center">
+        <tr>
+            <th colspan="2">Basic Calculator</th>
+        </tr>
+
+        <tr>
+            <td>Enter First Value</td>
+            <td>
+                <input type="number" id="ip1">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Enter Second Value</td>
+            <td>
+                <input type="number" id="ip2">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Answer is</td>
+            <td>
+                <p id="ans"></p>
+            </td>
+        </tr>
+
+        <tr>
+            <th colspan="2">
+                <button onclick="makeSum()">Sum</button>
+                <button onclick="makeSub()">Sub</button>
+                <button onclick="makeMul()">Mul</button>
+                <button onclick="makeDiv()">Div</button>
+                <button onclick="makeMod()">Mod</button>
+            </th>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+<script>
+    let ip1 = document.getElementById("ip1");
+    let ip2 = document.getElementById("ip2");
+    let ans = document.getElementById("ans");
+
+    function makeSum(){
+        ans.innerHTML = Number(ip1.value) + Number(ip2.value);
+    }
+
+    function makeSub(){
+        ans.innerHTML = Number(ip1.value) - Number(ip2.value);
+    }
+
+    function makeMul(){
+        ans.innerHTML = Number(ip1.value) * Number(ip2.value);
+    }
+
+    function makeDiv(){
+        ans.innerHTML = Number(ip1.value) / Number(ip2.value);
+    }
+
+    function makeMod(){
+        ans.innerHTML = Number(ip1.value) % Number(ip2.value);
+    }
+</script>
