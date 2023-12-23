@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    /*  Warning !
+
+        Array elements can be deleted using the JavaScript operator delete. Using delete leaves undefined holes in the array. Use pop() or shift() instead.
+
+    */
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.write("<hr>" + fruits);
+    delete fruits[1];
+    delete fruits[2];
+    document.write("<hr>" + fruits);
+
+</script>

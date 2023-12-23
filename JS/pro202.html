@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    // The splice() method can be used to add new items to an array: 
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.write("<hr> Original Array is "+fruits);
+
+    // splice (start index, number of element to remove, new elememnts)
+
+    fruits.splice(3, 0, "Kiwi", "Watermalon");
+    document.write("<hr> New Array is "+fruits);
+</script>

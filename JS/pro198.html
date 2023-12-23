@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    const data = [
+        [11, 22],
+        [22, 44],
+        [55, 66],
+        [99, 88],
+        [123, 432]
+    ];
+
+    document.write("<hr> Original Array is "+data);
+    console.log(data);
+    const ans = data.flat(1);
+    console.log(ans);
+    document.write("<hr> New Array is "+ans);
+</script>

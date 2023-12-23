@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op"></h1>
+    <hr>
+    <button onclick="addElement()">Add New</button>
+    <button onclick="removeElement()">Remove Element</button>
+</body>
+
+</html>
+
+<script>
+    const op = document.getElementById("op");
+                //  0           1       2           3       4           5
+    const fruits = ["Banana", "Orange", "Apple", "Mango", "Pineapple", "Kiwi"];
+    
+    op.innerHTML = fruits;
+
+    function addElement(){
+        let name = prompt("Enter any fruit name");
+        fruits[fruits.length] = name; // add new element at end of the array
+        // fruits[6] = new value
+        op.innerHTML = fruits;
+    }
+
+    function removeElement(){
+        fruits.pop(); // remove last element from array
+        op.innerHTML = fruits;
+    }
+</script>
