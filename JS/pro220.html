@@ -16,7 +16,14 @@
 </html>
 
 <script>
-    const numbers = [11, 34, 22, 44, 66, 4, 8, 9, 1100, 34];
-    document.write("<hr> Original Array is "+numbers);
-    document.write("<hr> Sorted Array is "+numbers.sort());
+    let values = [11, 22, 33, 44, 55, 66, 77, 88, 99];
+
+    document.write("<hr>"+values);
+
+    /*
+    */ 
+
+    let ans = values.filter((x)=> x %2 == 0); // even
+
+    document.write("<hr> Mapped Array is "+ans);
 </script>

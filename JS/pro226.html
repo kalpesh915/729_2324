@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    let values = [11, 25, 15, 22, 33, 44, 55, 22, 66, 77, 88, 99];
+
+    document.write("<hr>"+values);
+    // The find() method returns the value of the first array element that passes a test function.
+    document.write("<hr>"+values.find((x)=> x >= 50));
+    // The findIndex() method returns the index of the first array element that passes a test function.
+    document.write("<hr>"+values.findIndex((x)=> x >= 50));
+</script>

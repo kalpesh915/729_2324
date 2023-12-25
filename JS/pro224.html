@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    let values = [11, 25, 15, 22, 33, 44, 55, 66, 77, 88, 99];
+
+    document.write("<hr>"+values);
+
+    /*check for some array values greater than or equal to 18*/ 
+    //let ans = values.some((x) => x >= 18); 
+
+    let ans = values.some(findGreaterThan18);
+    
+    document.write("<hr> Mapped Array is "+ans);
+
+    /// traditional way of declaring functions on JS
+    function findGreaterThan18(x){
+        return x >= 18;
+    }
+
+    /// latest way to declare function in JS
+    /*
+        no need to write function keyword
+        no need to write function name
+        no need to put {}
+        no need to write return statement
+
+        ex.
+        old way
+        function findGreaterThan18(x){
+            return x >= 18;
+        }
+        
+        new way
+        (parameter) => code
+
+        (x) => x >= 18;
+    */
+</script>

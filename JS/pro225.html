@@ -16,7 +16,10 @@
 </html>
 
 <script>
-    const numbers = [11, 34, 22, 44, 66, 4, 8, 9, 1100, 34];
-    document.write("<hr> Original Array is "+numbers);
-    document.write("<hr> Sorted Array is "+numbers.sort());
+    let values = [11, 25, 15, 22, 33, 44, 55, 22, 66, 77, 88, 99];
+
+    document.write("<hr>"+values);
+    document.write("<hr>"+values.indexOf(22));
+    document.write("<hr>"+(values.indexOf(22)+1));
+    document.write("<hr>"+values.lastIndexOf(22));
 </script>

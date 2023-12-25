@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    const data = [11, 23, 1, 345, 3, 90, 87, 67, 564, 34, 12, 88];
+
+    document.write("<hr> Array is "+data);
+    //data.sort();
+    data.sort(function(a,b) {return a - b});
+    /*  a   b
+        11 23
+
+        11 - 23 = negative // no swap in value s because values is on right place
+        23 - 1 = positive // first value is samller than second so it need to apply swap
+        3 - 3 = zero // no swap in values because values are same
+    */
+    document.write("<hr> Sorted Array is "+data);
+</script>

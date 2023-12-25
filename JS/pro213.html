@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    const data = [11, 23, 1, 345, 3, 90, 87, 915, 67, 564, 34, 12, 88];
+
+    document.write("<hr> Array is "+data);
+    //data.sort();
+    document.write("<hr> Highest From Array is "+ Math.max.apply(null, data));
+    document.write("<hr> Lowest From Array is "+ Math.min.apply(null, data));
+</script>
