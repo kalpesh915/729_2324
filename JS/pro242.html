@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        JavaScript Stores Dates as Milliseconds
+        JavaScript stores dates as number of milliseconds since January 01, 1970.
+        Zero time is January 01, 1970 00:00:00 UTC.
+        One day (24 hours) is 86 400 000 milliseconds.
+        Now the time is: 1703557399848 milliseconds past January 01, 1970
+    */
+    document.write("<hr> Date is " + new Date(9000000000000));
+    document.write("<hr> Date is " + new Date(-9000000000000));
+    document.write("<hr> Date is " + new Date(1000 * 60 * 60 * 24 * 30 * 10 * 5));
+    document.write("<hr> Date is " + new Date(86400000 * 365 * 50));
+</script>

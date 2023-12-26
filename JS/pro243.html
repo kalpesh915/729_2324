@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+    <h1 id="op3"></h1>
+    <h1 id="op4"></h1>
+</body>
+
+</html>
+
+<script>
+    document.getElementById("op1").innerHTML = new Date();
+    document.getElementById("op2").innerHTML = new Date().toDateString();
+    document.getElementById("op3").innerHTML = new Date().toUTCString();
+    document.getElementById("op4").innerHTML = new Date().toISOString();
+</script>
