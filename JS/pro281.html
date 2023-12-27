@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    let ip1 = 100;
+    let ip2 = null;
+
+    /*
+        value of ip2 is replaced by 1 if value is not available, null or undefined
+    */
+
+    let ans = ip1 / (ip2 ?? 1);
+
+    document.write(ans);
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        logical and operator
+
+        required both conditions to be true
+
+        Table :
+        condition1  condition2  result
+        true        false       false
+        false       true        false
+        false       false       false
+        true        true        true
+    */
+
+   document.write("<hr> " + (10 > 8 && 10 < 5));
+   document.write("<hr> " + (10 > 18 && 10 < 50));
+   document.write("<hr> " + (10 > 18 && 10 < 5));
+   document.write("<hr> " + (10 > 8 && 10 < 50));
+</script>

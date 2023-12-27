@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        The ?. operator returns undefined if an object is undefined or null (instead of throwing an error).
+    */ 
+
+    let car = {
+        "brand" : "Hyundai",
+        "modal" : "I20",
+        "fuel" : "Petrol",
+        "seat" : null
+    };
+
+    document.getElementById("op1").innerHTML = car?.seat;    
+</script>
