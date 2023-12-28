@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1 id="op1"></h1>
+    <h1 id="op2"></h1>
+</body>
+
+</html>
+
+<script>
+    // print day name with use of switch case
+
+    let day = new Date().getDay();
+
+    //alert(day);
+
+    switch(day){
+        case 0:{
+            data = "Sunday";
+            break;
+        }
+        case 1:{
+            data = "Monday";
+            break;
+        }
+        case 2:{
+            data = "Tuesday";
+            break;
+        }
+        case 3:{
+            data = "Wednesday";
+            break;
+        }
+        case 4:{
+            data = "Thursday";
+            break;
+        }
+        case 5:{
+            data = "Friday";
+            break;
+        }
+        case 6:{
+            data = "Saturday";
+            break;
+        }
+        default:{
+            data = "Invalid Day Number";
+            break;
+        }
+    }
+
+    document.write(data);
+</script>

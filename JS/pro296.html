@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    // print season name with use of switch case
+
+    let month = new Date().getMonth() + 1;
+
+    switch(month){
+        case 11:
+        case 12:
+        case 1:        
+        case 2:{
+            document.write("<hr> Winter");
+            break;
+        }
+
+        case 3:
+        case 4:
+        case 5:        
+        case 6:{
+            document.write("<hr> Summer");
+            break;
+        }
+
+        case 7:
+        case 8:
+        case 9:        
+        case 10:{
+            document.write("<hr> Monsoon");
+            break;
+        }
+
+        default:{
+            document.write("<hr> Invalid Month Number");
+        }
+    }
+</script>

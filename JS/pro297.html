@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+
+    /*
+        Strict Comparison
+        Switch cases use strict comparison (===). The values must be of the same type to match.
+        A strict comparison can only be true if the operands are of the same type.
+    */
+
+    let status = 1; // never use "1"
+
+    switch(status){
+        case 0:{
+            document.write("<hr> False <hr>");
+            break;
+        }
+        case 1:{
+            document.write("<hr> True <hr>");
+            break;
+        }
+        default:{
+            document.write("<hr> Invalid Data <hr>");
+            break;
+        }
+    }
+</script>
