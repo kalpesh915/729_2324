@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    /*
+        find sum of digits in entered number
+        12345654 = 30
+    */
+
+    let ip1 = Number(prompt("Enter any Number "));
+
+    let ans = 0;
+
+    while(ip1 > 0){
+        ans += ip1 % 10; // reminder
+        ip1 = parseInt(ip1 / 10);
+    }
+
+    /*
+            ip1         ip1 % 10            ans
+            12321                           0
+            12321       1                   1
+            1232        2                   3
+            123         3                   6
+            12          2                   8
+            1           1                   9
+            0           -                   
+    */ 
+
+    document.write("<hr>"+ans);
+</script>

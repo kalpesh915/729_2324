@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    /*
+        find number of digits in entered number
+
+        12345654 = 8
+    */
+
+    let ip1 = Number(prompt("Enter any Number "));
+
+    let ans = 0;
+
+    while(ip1 > 0){
+        ans++;
+        //ip1 = ip1 / 10;
+        //document.write("<hr>"+ip1);
+        ip1 = parseInt(ip1 / 10);
+    }
+
+    document.write("<hr>"+ans);
+</script>
