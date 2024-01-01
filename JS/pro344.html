@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+
+</html>
+
+<script>
+    /*
+        A Map holds key-value pairs where the keys can be any datatype. A Map remembers the original insertion order of the keys.
+    */
+
+    let data = new Map([
+        [111, "Rohan"], [112, "Udit"], [113, "Rachit"], [114, "Tushar"], [115, "Milan"], [116, "yash"], [117, "yash"]
+    ]);
+
+    document.write("<hr>"+data);
+    document.write("<hr>"+data.size);
+    data.set([118, "Yograjsinh"]);
+    document.write("<hr>"+data.size);
+</script>
