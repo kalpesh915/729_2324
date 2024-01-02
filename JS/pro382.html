@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+            ///012345678901234567890123456789012345678
+    let ip1 = `welcome to world of java script strings english 1 11 123 1234 112233 12345`;
+    document.write("<hr> Original String is "+ip1);
+    //let ans = ip1.replace(/\be/g, "*"); // find e at begin of word
+    let ans = ip1.replace(/e\b/g, "*"); // find e at end of word
+    document.write("<hr> Answer is "+ans);
+</script>
