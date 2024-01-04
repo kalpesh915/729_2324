@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        JavaScript Initializations are Not Hoisted JavaScript only hoists declarations, not initializations.
+        interprit : code run line by line (top to bottom)
+    */
+    var ip1 = 100;
+    var ip2;
+    document.getElementById("op").innerHTML = (ip1 + ip2);
+    ip2 = 100;
+
+    /*
+        Declare Your Variables At the Top !
+        Hoisting is (to many developers) an unknown or overlooked behavior of JavaScript. If a developer doesn't understand hoisting, programs may contain bugs (errors). To avoid bugs, always declare all variables at the beginning of every scope. Since this is how JavaScript interprets the code, it is always a good rule. JavaScript in strict mode does not allow variables to be used if they are not declared.
+    */
+</script>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onresize="getWidth()">
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    let innerWidth = 1200;
+    /*
+        custom variable innerWidth overwrite the value of window.innerWidth to 1200
+    */
+    function getWidth(){
+        document.getElementById("op").innerHTML = window.innerWidth;
+        //document.getElementById("op").innerHTML = innerWidth;
+    }    
+</script>
