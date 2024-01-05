@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+
+    // create objects with class
+    class Student{
+        // The constructor method is called automatically when a new object is created.
+        constructor(roll, fname, lname){
+            // create property named roll in class and assign value received in constructor
+            this.roll = roll;
+            this.fname = fname;
+            this.lname = lname;
+        }
+    }
+
+    const student1 = new Student(111, "Rachit", "Chauhan");
+    const student2 = new Student(112, "Yash", "Vaghela");
+    const student3 = new Student(113, "Tushar", "Kadam");
+</script>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+
+    class Student{
+        constructor(roll, fname, lname, year){
+            this.roll = roll;
+            this.fname = fname;
+            this.lname = lname;
+            this.year = year;
+        }
+
+        getData(){
+            return "<hr>"+this.roll+" "+this.fname+" "+this.lname;
+        }
+
+        getAge(){
+            let currentYear = new Date().getFullYear();
+            let age = currentYear - this.year;
+            return "<hr> "+this.fname +" Age is "+age;
+        }
+    }
+
+    const student1 = new Student(111, "Rachit", "Chauhan",2002);
+    const student2 = new Student(112, "Yash", "Vaghela", 2004);
+    const student3 = new Student(113, "Tushar", "Kadam", 2005);
+
+    document.write(student1.getAge());
+    document.write(student2.getAge());
+    document.write(student3.getAge());
+</script>

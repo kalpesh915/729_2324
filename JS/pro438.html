@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+
+    /*
+        Converting a JSON Text to a JavaScript Object
+        A common use of JSON is to read data from a web server, and display the data in a web page.
+        For simplicity, this can be demonstrated using a string as input.
+        First, create a JavaScript string containing JSON syntax:
+    */ 
+    const myObjectData = {"roll" : 121, "fname" : "Rohan", "lname" : "Dasadiya", "city" : "Rajkot"};
+    document.write("<hr> My Object is "+myObjectData);
+
+    const myJSON = JSON.stringify(myObjectData);
+
+    document.write("<hr> My JSON String "+myJSON);
+</script>
