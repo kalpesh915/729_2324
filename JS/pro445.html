@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    const student = {
+        roll : 123, 
+        fname : "Rohan", 
+        lname : "Dasadiya", 
+        city : "rajkot", 
+        married : false,
+        getData : function(){
+            return "<hr>"+this.roll+" "+this.fname+" "+this.lname+" "+this.city+" "+this.married;
+        }
+    };
+
+    document.write("<hr>"+student);
+    document.write(student.getData());
+</script>

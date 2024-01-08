@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    const student = {
+        roll : 123,
+        fname : "Tushar",
+        lname : "Kadam",
+        city : "Rajkot",
+        getData : function(){
+            // this keyword refer to current object
+            return this.fname+" "+this.lname+" "+this.city+" "+this.roll;
+
+            // return error beacuse fname, lname, city and roll treated as local variable of getData function
+            //return fname+" "+lname+" "+city+" "+roll;
+        }    
+    };
+
+    document.write("<hr>"+student);
+    document.write("<hr>"+student.getData());
+</script>
