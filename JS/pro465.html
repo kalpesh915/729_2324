@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    const student = {
+        roll : 123,
+        fname : "Tushar",
+        lname : "Kadam",
+        city : "Rajkot",
+        get fn(){
+            return this.fname
+        },
+        get ln(){
+            return this.lname;
+        },
+        set fn(value){
+            this.fname = value.toUpperCase();
+        },
+        set ln(value){
+            this.lname = value.toUpperCase();
+        }
+    };
+
+    document.write("<hr>"+student.fn+" "+student.ln);
+    student.fn = "Yagnik";
+    student.ln = "Yadav";
+    // student.fn("Yadav");
+    document.write("<hr>"+student.fn+" "+student.ln);
+</script>

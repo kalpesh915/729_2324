@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    const myObject = {
+        count : 0
+    }
+
+    // define reset property for our object
+    Object.defineProperty(myObject, "reset", {
+        get : function(){
+            this.count = 0;
+        }
+    });
+
+
+    Object.defineProperty(myObject, "increment", {
+        get : function(){
+            this.count++;
+        }
+    });
+
+    Object.defineProperty(myObject, "decrement", {
+        get : function(){
+            this.count--;
+        }
+    });
+
+    Object.defineProperty(myObject, "add", {
+        set : function(value){
+            this.count += value;
+        }
+    });
+
+    Object.defineProperty(myObject, "less", {
+        set : function(value){
+            this.count -= value;
+        }
+    });
+
+    document.write("<hr> value of count is "+myObject.count);
+    myObject.count = 10;
+    document.write("<hr> value of count is "+myObject.count);
+    myObject.reset;
+    document.write("<hr> value of count is "+myObject.count);
+    myObject.increment;
+    myObject.increment;
+    document.write("<hr> value of count is "+myObject.count);
+    myObject.decrement;
+    myObject.decrement;
+    document.write("<hr> value of count is "+myObject.count);
+    myObject.add = 10;
+    document.write("<hr> value of count is "+myObject.count);
+    myObject.less = 5;
+    document.write("<hr> value of count is "+myObject.count);
+</script>

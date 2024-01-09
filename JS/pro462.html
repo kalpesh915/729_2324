@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    const student = {
+        roll : 123,
+        fname : "Tushar",
+        lname : "Kadam",
+        city : "Rajkot",
+        subjects : ["HTML", "CSS", "JS", "PHP"],
+        getData : function(){
+            return this.fname+" "+this.lname
+        }
+    };
+
+    // store the output of getData() to getData key of our object
+    student.getData = student.getData();
+
+    document.write(JSON.stringify(student));
+    
+</script>

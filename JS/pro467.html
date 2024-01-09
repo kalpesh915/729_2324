@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        Object Types (Blueprints) (Classes)
+        The examples from the previous chapters are limited. They only create single objects.
+        Sometimes we need a "blueprint" for creating many objects of the same "type". The way to create an "object type", is to use an object constructor function. In the example above, function Person() is an object constructor function. Objects of the same type are created by calling the constructor function with the new keyword:
+    */
+
+
+    function Student(roll, fname, lname, city){
+        this.roll = roll;
+        this.fname = fname;
+        this.lname = lname;
+        this.city = city;
+    }
+
+    const std1 = new Student(111, "Bhavdeep", "Sorathiya", "Rajkot");
+    document.write("<hr>"+std1);
+    const std2 = new Student(112, "Rachit", "Chauhan", "Rajkot");
+    document.write("<hr>"+std2);
+    const std3 = new Student(113, "Yash", "Vaghela", "Rajkot");
+    document.write("<hr>"+std3);
+</script>

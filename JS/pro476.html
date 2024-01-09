@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    myNumbers = {};
+    myNumbers[Symbol.iterator] = function(){
+        let count = 0;
+        done = false;
+        return { next() {
+                count += 10;
+                if(count == 100){
+                    done = true;
+                }
+                return { value : count, done : done};
+            }
+        }
+    }
+
+    for(let x of myNumbers){
+        //alert("Called");
+        document.write(" "+x);
+    }
+</script>
