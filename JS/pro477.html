@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        A JavaScript Set is a collection of unique values. Each value can only occur once in a Set.A Set can hold any value of any data type.
+    */
+
+    const data = new Set(["Rajkot", "Surat", "Baroda", "Bhuj", "Rajkot", "Bhuj", "rajkot"]);
+
+    document.write("<hr>"+data.size);
+    data.add("Ahamdabad");
+    document.write("<hr>"+data.size);
+    document.write("<hr>"+data.has("Rajkot"));
+    data.delete("Rajkot");
+    document.write("<hr>"+data.has("Rajkot"));
+    data.clear();
+    document.write("<hr>"+data.size);
+</script>

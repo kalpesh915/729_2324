@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    const data = {};
+    console.log(data);
+    //                      object_name, property_name, {value : property_value}
+    Object.defineProperty(data, "roll", {value : 123});
+    console.log(data);
+    Object.defineProperty(data, "fname", {value : "Bhavdeep", writable : true});
+    //console.log(Object.getOwnPropertyDescriptor(data, "fname"));
+    //console.log(Object.getOwnPropertyNames(data));
+    //console.log(Object.getPrototypeOf(data));
+    console.log(Object.keys(data));
+</script>

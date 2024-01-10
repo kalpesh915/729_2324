@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    const data = {};
+    console.log(data);
+    Object.defineProperty(data, "roll", {value : 123, enumerable : true});
+    Object.defineProperty(data, "fname", {value : "Bhavdeep", writable : true, enumerable : true});
+    Object.defineProperty(data, "lname", {value : "Sorathiya", writable : true, enumerable : false});
+
+    Object.defineProperty(data, "fullData", {
+        get: function(){
+            return this.roll+" "+this.fname+" "+this.lname;
+        }
+    });
+
+    console.log(data.fullData);
+</script>

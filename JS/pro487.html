@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        A Map holds key-value pairs where the keys can be any datatype. A Map remembers the original insertion order of the keys. A Map has a property that represents the size of the map.
+    */
+
+    const data = new Map([
+        // [key, value]
+        ["Rajkot", 3432423],
+        ["Surat",234234],
+        ["Baroda",234234234],
+        ["Bhuj",253457524],
+        ["Bharuch",345136245],
+        ["Anand",236368367],
+        ["Ahamdabad",236457245],
+        ["Rajkot",262457245],
+        ["Morbi",262454]
+    ]);
+
+
+    data.forEach((population, city)=>{
+        document.write(`<hr> Population of ${city} is ${population}`);
+    });
+</script>
