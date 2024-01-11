@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        Function Expressions
+        A JavaScript function can also be defined using an expression.
+        A function expression can be stored in a variable:
+    */
+    
+    const myFunction = function(x, y) {return x * y};
+
+    document.write("<hr>"+myFunction(5, 5));
+    document.write("<hr>"+myFunction(5, 15));
+
+    /* 
+        The function above is actually an anonymous function (a function without a name).Functions stored in variables do not need function names. They are always invoked (called) using the variable name.
+    */
+</script>

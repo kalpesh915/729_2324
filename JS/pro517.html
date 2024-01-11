@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        The Arguments Object
+        JavaScript functions have a built-in object called the arguments object. The argument object contains an array of the arguments used when the function was called (invoked). This way you can simply use a function to find (for instance) the highest value in a list of numbers:
+    */
+
+    function makeSum(...data) {
+        let ans = 0;
+
+        for(let x of arguments){
+            ans += x;
+        }
+
+        document.write("<hr> Answer is "+ans);
+    }
+
+    makeSum(11, 22, 33, 44, 55, 66, 77, 88, 99);
+
+</script>
