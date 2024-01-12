@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        A Counter Dilemma   
+        Suppose you want to use a variable for counting something, and you want this counter to be available to all functions.
+    */
+
+    let counter = 0; // global
+
+    function increment() {
+        counter++;
+    }
+
+    document.write("<hr> Counter is "+counter);
+    increment();
+    increment();
+    increment();
+    increment();
+    increment();
+    document.write("<hr> Counter is "+counter);
+
+    /*
+        There is a problem with the solution above: Any code on the page can change the counter, without calling add().
+        The counter should be local to the add() function, to prevent other code from changing it:
+    */ 
+
+    counter = 100;
+    increment();
+    increment();
+    increment();
+    document.write("<hr> Counter is "+counter);
+</script>

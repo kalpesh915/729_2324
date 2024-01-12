@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        Preserving this
+        Sometimes the bind() method has to be used to prevent losing this.
+        In the following example, the person object has a display method. In the display method, this refers to the person object:
+    */
+
+    const Person = {
+        fname : "Yash",
+        lname : "Vaghela",
+        fullname : function(){
+            let op = document.getElementById("op");
+            op.innerHTML = "Welcome "+ this.fname+" "+ this.lname;
+        }
+    }
+
+    Person.fullname();
+</script>

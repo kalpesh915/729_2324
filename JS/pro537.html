@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        JavaScript variables can belong to the local or global scope. Global variables can be made local (private) with closures.
+
+        Global Variables
+        A function can access all variables defined inside the function, like this:
+    */
+
+    let y = 15; // global
+    function msg(){
+        y = 10; // local
+        alert(y + y); // 25 or 20
+    }
+
+    msg();
+    alert("Global y is "+y);
+
+    // Variables created without a declaration keyword (var, let, or const) are always global, even if they are created inside a function.
+
+    /*
+        Variable Lifetime
+        Global variables live until the page is discarded, like when you navigate to another page or close the window.
+        Local variables have short lives. They are created when the function is invoked, and deleted when the function is finished.
+    */ 
+</script>

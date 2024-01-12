@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+
+    /*
+        Since JavaScript arrays do not have a max() method, you can apply the Math.max() method instead.
+    */
+
+    document.write("<hr>" + Math.max(1, 2, 3));  // Will return 3 ;
+    document.write("<hr>" + Math.max.apply(null, [1, 2, 3]));
+    document.write("<hr>" + Math.max.apply(Math, [1, 2, 3]));
+    document.write("<hr>" + Math.max.apply("", [1, 2, 3]));
+    document.write("<hr>" + Math.max.apply(" ", [1, 2, 3]));
+    document.write("<hr>" + Math.max.apply(0, [1, 2, 3]));
+
+    /*
+        JavaScript Strict Mode
+        In JavaScript strict mode, if the first argument of the apply() method is not an object, it becomes the owner (object) of the invoked function. In "non-strict" mode, it becomes the global object.
+
+    */
+</script>
