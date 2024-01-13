@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        static class methods are defined on the class itself. You cannot call a static method on an object, only on an object class.
+    */ 
+
+    class Demo{
+        constructor(){
+
+        }
+
+        static msg(){
+            document.write("Welcome to world of js");
+        }
+    }
+
+    Demo.msg();
+</script>

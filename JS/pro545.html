@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        JavaScript Classes
+        ECMAScript 2015, also known as ES6, introduced JavaScript Classes.
+        JavaScript Classes are templates for JavaScript Objects.
+
+        JavaScript Class Syntax
+        Use the keyword class to create a class. Always add a method named constructor():
+    */ 
+
+    class Student{
+        /*
+            If you do not define a constructor method, JavaScript will add an empty constructor method. 
+        */ 
+        constructor(roll, fname, lname, city){
+            this.roll = roll;
+            this.fname = fname;
+            this.lname = lname;
+            this.city = city;
+        }
+    }
+
+    let std1 = new Student(123, "Gaurang", "Pandya", "Rajkot");
+    let std2 = new Student(124, "Ghetiya", "udit", "Rajkot");
+</script>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        Then add any number of methods.
+    */ 
+
+    class Student{
+        constructor(roll, fname, lname, city, birthyear){
+            this.roll = roll;
+            this.fname = fname;
+            this.lname = lname;
+            this.city = city;
+            this.birthyear = birthyear;
+        }
+
+        // get data from class
+        getData(){
+            return this.fname+" "+this.lname+" "+this.roll+" "+this.city;
+        }
+
+        getAge(){   
+            let currentYear = new Date().getFullYear();
+            return currentYear - this.birthyear;
+        }
+    }
+
+    let std1 = new Student(123, "Gaurang", "Pandya", "Rajkot", 2004);
+    let std2 = new Student(124, "Ghetiya", "udit", "Rajkot", 2003);
+
+    document.write("<hr>"+std1.getAge());
+    document.write("<hr>"+std2.getAge());
+</script>

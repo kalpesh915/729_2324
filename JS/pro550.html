@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+      Class Inheritance
+      To create a class inheritance, use the extends keyword. A class created with a class inheritance inherits all the methods from another class:
+    */ 
+
+    class Address{
+        constructor(line1, line2, landmark, town, city, district, state, pincode){
+
+        }
+    }
+
+    class Person{
+        constructor(fname, lname){
+            this.fname = fname;
+            this.lname = lname;
+        }
+        intro(){
+            return "Hello i am "+this.fname+" "+this.lname;
+        }
+    }
+
+    // Inheritance follow is a relationship
+    class Student extends Person{
+        constructor(fname, lname, city){
+            super(fname, lname); // fname, lname pass to parent class constructor
+            this.city = city;
+        }
+        getData(){
+            return this.intro()+" from "+this.city;
+        }
+    }
+
+    class Teacher extends Person{
+
+    }
+
+    class Peon extends Person{
+
+    }
+
+
+    let std1 = new Student("Bhavdeep", "Sorathiya", "Rajkot");
+    document.write("<hr>"+std1.getData());
+</script>
