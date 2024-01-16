@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+      
+    */
+
+    function printer(value) {
+        document.getElementById("op").innerHTML = value;
+    }
+
+    // create array of values
+    const data = [11, 22, -32, 23, 56, -56, 3, 34, 25, 98, -55];
+                                        // ((x) => x >= 0 ) is callback
+    let result = removeNegative(data, ((x) => x >= 0 ));
+
+    document.getElementById("op").innerHTML = result;
+
+    function removeNegative(values, callback){
+        result1 = [];
+
+        for(let tmp of values){
+            if(callback(tmp)){
+                result1.push(tmp);
+            }
+        }
+        return result1;
+    }
+</script>

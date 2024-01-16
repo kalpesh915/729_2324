@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        Async Syntax
+        The keyword async before a function makes the function return a promise:
+    */
+
+    function getDate(){
+        return Promise.resolve(new Date());
+    }
+
+    document.write(getDate());
+</script>

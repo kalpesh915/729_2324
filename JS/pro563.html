@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        syntax of promise
+
+        // producing code
+        let MyPromise = new Promise(function(resolve, reject){
+            resolve(); // when success
+            reject(); // when error
+        })
+
+        // consuming code
+        MyPromise.then(function(data){
+            execute on success
+        }, function(error){
+            execute on error
+        });
+    */
+
+    function printer(data){
+        document.getElementById("op").innerHTML = data;
+    }
+
+    const MyPromise = new Promise(function(resolve, reject){
+        setTimeout(function(){
+            resolve("Today is "+new Date());
+        }, 3000);
+    });
+
+    MyPromise.then(function(result){
+        printer(result);
+    }, function(error){
+        printer(error);
+    });
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+
+<script>
+    /*
+        Loading a file data with AJAX
+    */
+
+    function printer(data){
+        document.getElementById("op").innerHTML = data;
+    }
+
+    function LoadData(callBack){
+        const xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "data.txt");
+        xmlHttp.onload = function(){
+            if(xmlHttp.status == 200){
+                callBack("Success : "+xmlHttp.responseText);
+            }else{
+                callBack("Error "+xmlHttp.statusText);
+            }
+        }
+        xmlHttp.send();
+    }
+
+    LoadData(printer);
+</script>
