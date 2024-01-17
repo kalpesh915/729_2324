@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="../images/pic_bulboff.gif" id="bulb" onmouseover="bulbon()" onmouseout="bulboff()">
+</body>
+</html>
+
+<script>
+    let bulb = document.getElementById("bulb");
+    
+    function bulbon(){
+        bulb.src = "../images/pic_bulbon.gif";
+    }
+
+    function bulboff(){
+        bulb.src = "../images/pic_bulboff.gif";
+    }
+</script>

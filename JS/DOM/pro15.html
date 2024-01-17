@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+    <form name="myform" action="data.html" method="get" onsubmit="return validate()">
+        <input type="text" name="fname" id="fname" placeholder="Enter your name">
+        <input type="submit" value="Send Data">
+    </form>    
+</body>
+</html>
+<script>
+    function validate(){
+        let myFname = document.forms["myform"]["fname"].value;
+        if(myFname == ""){
+            alert("Please Enter First Name");
+            return false;
+        }else{
+            if(isNaN(myFname)){
+                return true;
+            }
+            else{
+                alert("Number are not allowed");
+                return false;
+            }
+        }
+    }
+</script>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p class="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ut non deleniti impedit quaerat! Nostrum officiis architecto vitae quasi, recusandae aut aliquid at sed, tenetur neque reiciendis obcaecati, accusamus ipsam.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ut non deleniti impedit quaerat! Nostrum officiis architecto vitae quasi, recusandae aut aliquid at sed, tenetur neque reiciendis obcaecati, accusamus ipsam.</p>
+
+    <div class="demo">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ut non deleniti impedit quaerat! Nostrum officiis architecto vitae quasi, recusandae aut aliquid at sed, tenetur neque reiciendis obcaecati, accusamus ipsam.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ut non deleniti impedit quaerat! Nostrum officiis architecto vitae quasi, recusandae aut aliquid at sed, tenetur neque reiciendis obcaecati, accusamus ipsam.</p>
+    </div>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ut non deleniti impedit quaerat! Nostrum officiis architecto vitae quasi, recusandae aut aliquid at sed, tenetur neque reiciendis obcaecati, accusamus ipsam.</p>
+    <p class="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ut non deleniti impedit quaerat! Nostrum officiis architecto vitae quasi, recusandae aut aliquid at sed, tenetur neque reiciendis obcaecati, accusamus ipsam.</p>
+</body>
+</html>
+<script></script>
+<script>
+
+    let ptags = document.getElementsByTagName("p");
+    //alert(ptags.length);
+
+    let fs = 10;
+    for(let x of ptags){
+        x.style.fontSize = fs+"px";
+        fs += 5;
+    }
+</script>
