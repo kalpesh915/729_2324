@@ -1,0 +1,2 @@
+<h1>Welcome to world of Java Script</h1>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur voluptas culpa, officia doloribus eveniet incidunt, laudantium reprehenderit dolorem sed et odio, unde pariatur ad ipsum quae libero doloremque voluptate maiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora libero ipsam, eius adipisci voluptate obcaecati eum molestias autem ex earum ullam blanditiis dolorem eveniet eaque illo ducimus voluptas ratione et?</p>

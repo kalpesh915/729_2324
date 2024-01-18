@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        .outer{
+            height: 500px;
+            width: 500px;
+            background-color: yellow;
+            position: relative;
+        }
+
+        .inner{
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body onload="runAnimation()">
+    <div class="outer" id="outer">
+        <div class="inner" id="inner">
+
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    let outer = document.getElementById("outer");
+    let inner = document.getElementById("inner");
+    let position = 0;
+    let animation;
+    function runAnimation(){
+        animation = setInterval(runner, 1000);
+    }
+
+    function runner(){
+        // move inner div to position px
+        inner.style.left = position+"px";
+        inner.style.top = position+"px";
+        position += 50;
+        if(position >= 500){
+            clearInterval(animation);// kill the animation
+        }
+    }
+</script>

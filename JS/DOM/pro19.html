@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Race</title>
+
+    <style>
+        .car{
+            position: relative;
+            left: 0px;
+            height: 50px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body onload="init()">
+    <hr>
+        <img src="images/car1.gif" class="car" id="car1">
+    <hr>
+        <img src="images/car2.gif" class="car" id="car2">
+    <hr>
+    <button onclick="startRace()">Start Race</button>
+    <button onclick="pauseRace()">Pause Race</button>
+    <button onclick="resetRace()">Reset Race</button>
+    <hr>
+    <button onclick="gearUP()">Gear Up</button>
+    <button onclick="gearDown()">Gear Down</button>
+    <hr>
+    <div style="text-align: center;">
+        <h1 id="op1"></h1>
+        <h1 id="op2"></h1>
+        <h1 id="gearop"></h1>
+    </div>
+</body>
+</html>
+
+<script>
+    let car1 = document.getElementById("car1");
+    let car2 = document.getElementById("car2");
+    let op1 = document.getElementById("op1");
+    let op2 = document.getElementById("op2");
+    let gearop = document.getElementById("gearop");
+
+    let animation = null, gear = 0;
+
+    function init(){
+        animation = null;
+        gear = 0;
+
+        car1.style.left = "0px";
+        car2.style.left = "0px";
+
+        op1.innerHTML = "Car 1 on 0 Meters/ 1000 Meters";
+        op2.innerHTML = "Car 2 on 0 Meters/ 1000 Meters";
+    }
+
+    function startRace(){
+        gear = 1;
+        if(animation == null){
+            animation = setInterval(moveCar, 100);
+        }else{
+            alert("Race already started");
+        }
+    }
+
+    function gearUP(){
+        if(gear == 5){
+            
+        }else{
+            gear++;
+        }
+    }
+
+    function gearDown(){
+        if(gear == 1){
+
+        }else{
+            gear--;
+        }
+    }
+
+    // function for move cars
+    function moveCar(){
+        let tmp = Math.ceil((Math.random() * 10) * gear);
+        car1.style.left = (parseInt(car1.style.left) + tmp)+"px";
+        op1.innerHTML = "Car 1 on "+parseInt(car1.style.left)+" Meters/ 1000 Meters";
+
+        if(parseInt(car1.style.left) >= 1000){
+            let diff = parseInt(car1.style.left) - parseInt(car2.style.left);
+            alert("Car 1 is Win by "+diff+" Meters");
+            resetRace();
+        }
+
+        tmp = Math.ceil((Math.random() * 10) * gear);
+        car2.style.left = (parseInt(car2.style.left) + tmp)+"px";
+        op2.innerHTML = "Car 2 on "+parseInt(car2.style.left)+" Meters/ 1000 Meters";
+
+        if(parseInt(car2.style.left) >= 1000){
+            let diff = parseInt(car2.style.left) - parseInt(car1.style.left);
+            alert("Car 2 is Win by "+diff+" Meters");
+            resetRace();
+        }
+        gearop.innerHTML = "Current Gear is "+gear;
+    }
+
+    function resetRace(){
+        if(animation != null)
+        {
+            clearInterval(animation);
+            animation = null;
+            if(confirm("Do you want to play again?")){
+                init();
+            }else{
+                alert("Thanks for playing");
+            }
+        }
+    }
+
+
+    function pauseRace(){
+        if(animation == null){
+            alert("Race is not in Progress");
+        }else{
+            clearInterval(animation);
+            animation = null;
+        }
+    }
+</script>

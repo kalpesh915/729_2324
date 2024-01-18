@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+
+<body>
+    <h1 id="op"></h1>
+</body>
+
+</html>
+<script>
+    function getCurrentTime() {
+        let today = new Date();
+        const time = today.getHours()+" : "+today.getMinutes()+" : "+today.getSeconds();
+        document.getElementById("op").innerHTML = time;
+    }
+
+    /*
+        set Interval
+        repetedly execute a given task / function
+    */ 
+
+   setInterval(getCurrentTime, 1000);
+</script>
