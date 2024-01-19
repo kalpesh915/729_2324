@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="op">Event Listner Example</h1>
+    <button id="btn1">Click Me</button>
+    <hr>
+    <button onclick="addEvent()">Add Event</button>
+</body>
+</html>
+
+<script>
+    let x = 10;
+    let y = 20;
+
+    function addEvent(){
+        document.getElementById("btn1").addEventListener("click", function(){
+            makeSum(x, y);
+        });    
+    }
+
+    function makeSum(ip1, ip2){
+        document.getElementById("op").innerHTML = (ip1 + ip2);
+    }
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv">
+        <h1 id="myh1">Click me</h1>
+    </div>
+</body>
+</html>
+
+<script>
+
+    document.getElementById("mydiv").addEventListener("click", clickDiv);
+    document.getElementById("myh1").addEventListener("click", clickH1);
+
+    function clickDiv(){
+        alert("Clicked on Div");
+    }
+
+    function clickH1(){
+        alert("Clicked on H1");
+    }
+</script>

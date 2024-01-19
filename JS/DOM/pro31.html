@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="myh1">Click me</h1>
+</body>
+</html>
+
+<script>
+    document.write("<hr>"+document.getElementById("myh1").innerHTML);
+    document.write("<hr>"+document.getElementById("myh1").firstChild.nodeValue);
+    document.write("<hr>"+document.getElementById("myh1").childNodes[0].nodeValue);
+</script>
