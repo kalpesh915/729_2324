@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mydiv">
+        <p id="myfirstp">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci omnis qui, nobis eum minima quod repellendus odio quaerat voluptate corrupti explicabo laudantium! Atque eveniet accusantium minus consequuntur inventore est cupiditate!</p>
+        <p id="mysecondp">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi quidem nulla magnam eaque nisi ratione, nesciunt quisquam aspernatur earum repellendus delectus aliquid voluptates quos beatae, iusto, inventore deserunt tenetur dolores?</p>
+    </div>
+
+    <button onclick="addElement()">Add New P Tag</button>
+</body>
+</html>
+
+<script>
+    let div = document.getElementById("mydiv");
+    let myfirstp = document.getElementById("myfirstp");
+    let mysecondp = document.getElementById("mysecondp");
+
+    function addElement(){
+        let newp = document.createElement("p");
+        let text = document.createTextNode("Welcome to DOM");
+
+        newp.append(text);
+        div.append(newp);
+    }
+</script>

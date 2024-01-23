@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Object Model</title>
+</head>
+<body onresize="getDimention()">
+    <h1 id="op"></h1>
+</body>
+</html>
+
+<script>
+    function getDimention(){
+        document.getElementById("op").innerHTML = "Width is "+window.innerWidth+" Height is "+window.innerHeight;
+    }
+</script>

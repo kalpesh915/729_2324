@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Object Model</title>
+</head>
+
+<body>
+    <button onclick="openWin()">Open new Window</button>
+    <button onclick="closewin()">Close Window</button>
+    <button onclick="moveWin()">Move Window</button>
+    <button onclick="resizeWin()">Resize Win</button>
+</body>
+
+</html>
+
+<script>
+    let myWindow;
+    function openWin() {
+        myWindow = window.open('', '', 'width=400, height=200');
+    }
+
+    function moveWin() {
+        myWindow.moveTo(500, 100);
+    }
+</script>
