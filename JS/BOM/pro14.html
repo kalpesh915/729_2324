@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="startTimer()">
+    <h1 id="op"></h1>
+</body>
+</html>
+
+<script>
+    let animation;
+    let count = 0;
+    let op = document.getElementById("op");
+
+    function startTimer(){
+        animation = setInterval(currentDate, 1000);
+    }
+
+    function currentDate(){
+        if(count %2 == 0){
+            op.style.color = "Red";
+        }else{
+            op.style.color = "Blue";
+        }
+        count++;
+        op.innerHTML = Date();
+    }
+</script>

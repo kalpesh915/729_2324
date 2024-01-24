@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Page 1</h1>
+    <hr>
+    <a href="pro2.html">Page 2</a>
+    <hr>
+    <button onclick="historyBack()">Back</button>
+    <button onclick="historyForward()">Forward</button>
+    <button onclick="historyCount()">Count</button>
+    <button onclick="historyJump()">Jump</button>
+</body>
+</html>
+
+<script>
+    function historyBack(){
+        history.back();
+    }
+
+    function historyForward(){
+        history.forward();
+    }
+
+    function historyCount(){
+        alert(history.length);
+    }
+
+    function historyJump(){
+        history.go(-2);
+    }
+</script>
