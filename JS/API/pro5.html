@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="op"></h1>
+    <input type="text" name="cc" id="cc" required pattern="[A-Z]{3}">
+    <input type="button" value="Send Data" onclick="makeValidation()">
+</body>
+</html>
+
+<script>
+    function makeValidation(){
+        let cc = document.getElementById("cc");
+
+        if(cc.validity.patternMismatch){
+            document.getElementById("op").innerHTML = cc.validationMessage;
+        }
+    }
+</script>

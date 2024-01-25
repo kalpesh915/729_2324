@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getLocation()">Get Coordinates</button>
+    <h1 id="op"></h1>
+</body>
+</html>
+
+<script>
+    let op = document.getElementById("op");
+
+    function getLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(printer);
+        }else{
+            op.innerHTML = "Location not Available";
+        }
+    }
+
+    function printer(position){
+        op.innerHTML = "Latitude : "+position.coords.latitude+" Longitude : "+position.coords.longitude;
+    }
+</script>

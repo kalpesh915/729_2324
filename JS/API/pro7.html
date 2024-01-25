@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Session Storage Example</h1>
+    <hr>
+    <button onclick="setNewData()">Set Data</button>
+    <button onclick="getYourData()">Get Data</button>
+    <button onclick="countData()">Count</button>
+    <button onclick="updateData()">Update Data</button>
+    <button onclick="deleteData()">Delete Data</button>
+</body>
+</html>
+
+<script>
+    function setNewData(){
+        let uname = prompt("Enter your name");
+        sessionStorage.setItem("username", uname);
+    }
+
+    function getYourData(){
+        alert("Welcome "+sessionStorage.getItem("username"));
+    }
+
+    function countData(){
+        alert("Total Data in Storage is "+sessionStorage.length);
+    }
+
+    function updateData(){
+        let uname = prompt("Enter Updated Name");
+        sessionStorage.setItem("username", uname);
+    }
+
+    function deleteData(){
+        sessionStorage.removeItem("username");
+    }
+</script>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 100%;
+        }
+
+        table, td, th{
+            border: 1px solid black;
+        }
+
+        thead{
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+
+        th{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="loadData()">Load Data</button>
+    <div style="overflow: auto;">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Discount</th>
+                <th>Rating</th>
+                <th>Stock</th>
+                <th>Brand</th>
+                <th>Category</th>
+                <th>Photo</th>
+            </tr>
+        </thead>
+
+        <tbody id="data">
+            
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
+
+<script>
+    let op = ``;
+    let data = document.getElementById("data");
+
+    function loadData(){
+        fetch("https://dummyjson.com/products").then((response)=>{
+            //console.log(response);
+            response.json().then((result)=>{
+                //console.log(result);
+                //console.log(result.products);
+
+                for(let x of result.products){
+                    //console.log(x);
+                    op += `<tr>
+                        <td>${x.id}</td>
+                        <td>${x.title}</td>
+                        <td>${x.description}</td>
+                        <td>${x.price}</td>
+                        <td>${x.discountPercentage}</td>
+                        <td>${x.rating}</td>
+                        <td>${x.stock}</td>
+                        <td>${x.brand}</td>   
+                        <td>${x.category}</td>  
+                        <td><img src=${x.thumbnail} height=100 width=100></td>  
+                    </tr>`;
+                }
+            });
+
+            data.innerHTML = op;
+        });
+    }
+</script>

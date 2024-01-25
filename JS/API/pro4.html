@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="op"></h1>
+    <input type="number" name="age" id="age" required min="0" max="125" step="5">
+    <input type="button" value="Send Data" onclick="makeValidation()">
+</body>
+</html>
+
+<script>
+    function makeValidation(){
+        let age = document.getElementById("age");
+
+        if(age.validity.stepMismatch){
+            document.getElementById("op").innerHTML = age.validationMessage;
+        }
+    }
+</script>
