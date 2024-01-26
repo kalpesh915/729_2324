@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="loadData()">Load Data</button>
+    <div id="op"></div>
+</body>
+</html>
+
+<script>
+    function loadData(){
+        // create new object of XMLHttpRequest()
+        let request = new XMLHttpRequest();
+
+        // set Method and Path / URL
+        request.open("GET", "data1.txt");
+
+        // Manage Response with ready state
+        request.onreadystatechange = function(){
+            if(request.readyState == 0){
+                alert("Reqest not initialized ");
+            }else if(request.readyState == 1){
+                alert("server connection established");
+            }else if(request.readyState == 2){
+                alert("request received");
+            }else if(request.readyState == 3){
+                alert("processing request ");
+            }else if(request.readyState == 4){
+                alert("request finished and response is ready");
+            }
+        }
+
+        // send Request
+        request.send();
+    }
+</script>

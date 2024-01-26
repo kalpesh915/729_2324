@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="loadData()">Load Data</button>
+    <div id="op"></div>
+</body>
+</html>
+
+<script>
+    function loadData(){
+        // create new object of XMLHttpRequest()
+        let request = new XMLHttpRequest();
+
+        // set Method and Path / URL
+        request.open("GET", "data1.txt");
+
+        // Manage Response
+        request.onload = function(){
+            if(request.status = 200){
+                document.getElementById("op").innerHTML = request.responseText;
+            }else if(request.status = 404){
+                document.getElementById("op").innerHTML = request.responseText;
+            }
+        }
+
+        // send Request
+        request.send();
+    }
+</script>
