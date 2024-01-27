@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    /*
+        A common use of JSON is to exchange data to/from a web server.
+        When receiving data from a web server, the data is always a string. Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+    */
+
+   let jsonData = '{"roll": 123, "fname": "Tushar", "lname": "Kadam", "city": "Rajkot", "marks":[11,22, 33, 44, 55]}';
+
+   document.write("<hr>"+jsonData);
+   document.write("<hr>"+typeof(jsonData));
+
+   let objData = JSON.parse(jsonData);
+
+   document.write("<hr>Converted Data : "+objData);
+   document.write("<hr>"+typeof(objData));
+   document.write("<hr>"+objData.fname);
+   document.write("<hr>"+objData.marks[0]);
+</script>

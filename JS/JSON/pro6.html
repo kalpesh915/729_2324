@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    /*
+        A common use of JSON is to exchange data to/from a web server.
+        When sending data to a web server, the data has to be a string. Convert a JavaScript object into a string with JSON.stringify().
+    */
+
+    let jsObject = {
+        "fname" : "Tushar",
+        "lname" : "Kadam",
+        "city" : "Rajkot",
+        "education" : "BCA",
+        "birthdate" : "22-03-2005",
+        "marks" : [11, 22, 33, 44, 55],
+        "joindate" : new Date()
+    }
+
+    document.write("<hr>"+jsObject);
+    document.write("<hr>"+jsObject.fname);
+    document.write("<hr>"+jsObject.marks[0]);
+
+    let jsonData = JSON.stringify(jsObject);
+    document.write("<hr>"+jsonData);
+</script>

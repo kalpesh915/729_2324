@@ -1,0 +1,9 @@
+{
+    "students" : [
+        {"roll" : 123, "fname" : "Rachit", "lname" : "Chauhan", "city" : "Rajkot"},
+        {"roll" : 123, "fname" : "Rachit", "lname" : "Chauhan", "city" : "Rajkot"},
+        {"roll" : 123, "fname" : "Rachit", "lname" : "Chauhan", "city" : "Rajkot"},
+        {"roll" : 123, "fname" : "Rachit", "lname" : "Chauhan", "city" : "Rajkot"},
+        {"roll" : 123, "fname" : "Rachit", "lname" : "Chauhan", "city" : "Rajkot"}
+    ]
+}
