@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        .myClass1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Hide</button>
+    <hr>
+    <h1 id="data1" class="myClass1">Jquery Example</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p class="myClass1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p class="myClass1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p class="myClass1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p class="myClass1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            // The Class Selector
+            $(".myClass1").hide();
+        });
+    });
+</script>

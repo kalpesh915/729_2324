@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        .myClass1{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Hide</button>
+    <hr>
+    <h1 id="data1" class="myClass1">Jquery Example</h1>
+    <p>1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p class="myClass1">2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p class="myClass1">3 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p>4 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p>5 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p class="myClass1">6 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p>7 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p>8 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p class="myClass1">9 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+    <p>10 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae perspiciatis aliquam quo voluptatum est animi sunt dicta, explicabo quidem neque doloremque tenetur unde aut iste magnam in quis, rerum obcaecati?</p>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#btn1").mouseover(function(){
+            $("p").hide(300);
+        });
+
+        $("#btn1").mouseout(function(){
+            $("p").show(300);
+        });
+    });
+</script>
