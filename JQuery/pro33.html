@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        .myDiv{
+            background-color: brown;
+            color: white;
+            padding: 20px;
+            position: relative;
+            left: 0px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Run Animation</button>
+    <hr>
+    <div class="myDiv" id="div1">
+        Welcome to Jquery
+    </div>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("#div1").animate({
+                "left" : "500px"
+            }, 2000);
+        });
+    });
+</script>

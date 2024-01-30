@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    <button id="btn1">Hide</button>
+    <button id="btn2">Show</button>
+    <button id="btn3">Toggle</button>
+    <button id="btn4">Fade To</button>
+    <hr>
+    <p id="data">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat at alias voluptatum quas consectetur, similique nostrum culpa dignissimos nam placeat dolore veniam eos eaque laboriosam accusamus error deleniti perferendis veritatis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sequi, corporis sint distinctio praesentium explicabo quam nam aperiam eaque ducimus molestias necessitatibus consectetur similique dolores nisi exercitationem maiores odio officiis. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam in temporibus cumque repellendus nemo fugiat quas voluptatum rem pariatur corporis, distinctio et porro, facere mollitia quibusdam maxime illum, exercitationem earum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem molestiae id deserunt voluptatibus velit modi impedit placeat, inventore aliquid pariatur molestias aspernatur qui quas maiores nisi quibusdam quae distinctio. Accusamus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora ab modi nulla aliquid omnis inventore nisi vero blanditiis culpa laborum cumque numquam, placeat nostrum aut reprehenderit quibusdam, eligendi atque quos.</p>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("#data").fadeOut(2000);
+        });
+        $("#btn2").click(function(){
+            $("#data").fadeIn(2000);
+        });
+        $("#btn3").click(function(){
+            $("#data").fadeToggle(2000);
+        });
+        $("#btn4").click(function(){
+            $("#data").fadeTo(2000, "0.5");
+        });
+    });
+</script>
