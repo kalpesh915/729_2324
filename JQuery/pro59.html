@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        .demo{
+            background-color: brown;
+            color: white;
+            padding: 20px;
+        }
+
+        .center{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Add CSS Class</button>
+    <button id="btn2">Remove CSS Class</button>
+    <button id="btn3">Toggle CSS Class</button>
+    <hr>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        
+        $("#btn1").click(function(){
+            $("p").addClass("demo center");
+        });
+
+        $("#btn2").click(function(){
+            $("p").removeClass("demo center");
+        });
+
+        $("#btn3").click(function(){
+            $("p").toggleClass("demo");
+        });
+    });
+</script>

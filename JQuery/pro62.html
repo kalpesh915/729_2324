@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        .demo{
+            background-color: brown;
+            color: white;
+            width: 500px;
+            height: 200px;
+            padding: 20px;
+            border: 10px solid black;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Get Height / Width</button>
+    <button id="btn2">Get Inner Height / Width</button>
+    <button id="btn3">Get Outer Height / Width</button>
+    <button id="btn4">Get Outer Height / Width (true)</button>
+    <hr>
+    <p class="demo" id="p1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        let ptag = $("#p1");
+        $("#btn1").click(function(){
+            alert("Height is "+ptag.height()+" Width is "+ptag.width());
+        });
+
+        $("#btn2").click(function(){
+            alert("Inner Height is "+ptag.innerHeight()+" Inner Width is "+ptag.innerWidth());
+        });
+
+        $("#btn3").click(function(){
+            alert("Outer Height is "+ptag.outerHeight()+" Outer Width is "+ptag.outerWidth());
+        });
+
+        $("#btn4").click(function(){
+            alert("Outer Height true is "+ptag.outerHeight(true)+" Outer Width true is "+ptag.outerWidth(true));
+        });
+    });
+
+    /*
+        Height = 200px
+        width = 500px
+
+        height and width = 200 x 500 (content)
+        inner height and width = 240 x 540 (content + padding)
+        outer height and width = 260 x 560 (content + padding + border)
+        outer height and width true = 280 x 580 (content + padding + border + margin)
+    */ 
+</script>

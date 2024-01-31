@@ -15,12 +15,10 @@
     </style>
 </head>
 <body>
-    <button id="btn1">Get Text</button>
-    <button id="btn2">Get HTML</button>
+    <button id="btn1">Get Val</button>
+    <button id="btn2">Set Val</button>
     <hr>
-    <p id="op">
-        <b>Welcome </b> to world of jQuery DOM
-    </p>
+    <input type="text" name="city" id="city" value="Rajkot">
 </body>
 </html>
 
@@ -29,11 +27,11 @@
         // jQuery contains powerful methods for changing and manipulating HTML elements and attributes.
 
         $("#btn1").click(function(){
-            alert($("#op").text());
+            alert($("#city").val());
         });
 
         $("#btn2").click(function(){
-            alert($("#op").html());
+            $("#city").val("Ahamdabad");
         });
     });
 </script>

@@ -15,12 +15,10 @@
     </style>
 </head>
 <body>
-    <button id="btn1">Get Text</button>
-    <button id="btn2">Get HTML</button>
+    <button id="btn1">Get Attributes</button>
+    <button id="btn2">Set Attributes</button>
     <hr>
-    <p id="op">
-        <b>Welcome </b> to world of jQuery DOM
-    </p>
+    <a href="https://www.w3schools.com" id="link1">Read Content</a>
 </body>
 </html>
 
@@ -29,11 +27,11 @@
         // jQuery contains powerful methods for changing and manipulating HTML elements and attributes.
 
         $("#btn1").click(function(){
-            alert($("#op").text());
+            alert($("#link1").attr("href"));
         });
 
         $("#btn2").click(function(){
-            alert($("#op").html());
+            $("#link1").attr("href", "https://www.w3schools.com/jquery");
         });
     });
 </script>

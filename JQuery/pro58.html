@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        .demo{
+            background-color: brown;
+            color: white;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Empty</button>
+    <button id="btn2">Remove</button>
+    <hr>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
+    <p class="demo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
+    <p class="demo">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+        
+        $("#btn1").click(function(){
+            $("p").empty();
+        });
+
+        $("#btn2").click(function(){
+            $("p").remove(".demo");
+        });
+    });
+</script>

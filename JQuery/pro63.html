@@ -7,33 +7,32 @@
     <script src="jquery-3.7.1.min.js"></script>
     <script src="jquery.color.js"></script>
     <style>
-        .myDiv{
+        .demo{
             background-color: brown;
             color: white;
+            width: 200px;
+            height: 200px;
             padding: 20px;
+            border: 10px solid black;
+            margin: 10px;
         }
     </style>
 </head>
 <body>
-    <button id="btn1">Get Text</button>
-    <button id="btn2">Get HTML</button>
+    <button id="btn1">Set Height / Width</button>
     <hr>
-    <p id="op">
-        <b>Welcome </b> to world of jQuery DOM
-    </p>
+    <p class="demo" id="p1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
 </body>
 </html>
 
 <script>
     $(document).ready(function(){
-        // jQuery contains powerful methods for changing and manipulating HTML elements and attributes.
-
+        let ptag = $("#p1");
         $("#btn1").click(function(){
-            alert($("#op").text());
+            ptag.height(400);
+            ptag.width(800);
         });
 
-        $("#btn2").click(function(){
-            alert($("#op").html());
-        });
     });
+
 </script>

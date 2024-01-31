@@ -15,25 +15,22 @@
     </style>
 </head>
 <body>
-    <button id="btn1">Get Text</button>
-    <button id="btn2">Get HTML</button>
+    <button id="btn1">Append Text</button>
+    <button id="btn2">Prepednd Text</button>
     <hr>
-    <p id="op">
-        <b>Welcome </b> to world of jQuery DOM
-    </p>
+    <p id="op">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit, maiores eos aliquam atque optio ratione odio incidunt magni nisi est deleniti provident ab neque corporis quis sit repellendus rem consequuntur?</p>
 </body>
 </html>
 
 <script>
     $(document).ready(function(){
-        // jQuery contains powerful methods for changing and manipulating HTML elements and attributes.
-
+        
         $("#btn1").click(function(){
-            alert($("#op").text());
+            $("#op").append("Appended Text ");
         });
 
         $("#btn2").click(function(){
-            alert($("#op").html());
+            $("#op").prepend("Prepended Text ");
         });
     });
 </script>
