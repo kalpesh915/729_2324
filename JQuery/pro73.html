@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        .ancestors *{
+            display: block;
+            border: 2px solid gray;
+            color: black;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ancestors">
+        <div style="width: 500px;">
+            Div (great-grandparent)
+            <ul>
+                UL (grandparent)
+                <li>
+                    LI (Parent)
+                    <span>Span</span>
+                </li>
+            </ul>
+        </div>
+
+        <div style="width: 500px;">
+            <p>
+                P Tag 1 (Parent)
+                <span>Span Tag</span>
+            </p>
+            <p class="first">
+                P Tag 2 (Parent)
+                <span>Span Tag</span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    // The find() method returns descendant elements of the selected element, all the way down to the last descendant.
+    $(document).ready(function(){
+       $("div").find("span").css("border", "3px solid red");
+    });
+
+</script>

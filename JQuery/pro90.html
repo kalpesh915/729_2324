@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+
+        .search{
+            width: 100%;
+            padding: 20px;
+            color: white;
+            background-color: olive;
+            border: none;
+            outline: none;
+            margin: 10px 0px;
+        }
+
+        .search:focus{
+            border-bottom: 2px solid black;
+        }
+
+        table, th, td{
+            border: 1px solid black;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        th{
+            background-color: green;
+            color: white;
+            padding: 20px;
+        }
+
+        td{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input type="search" class="search" placeholder="Search Here" id="search">
+    <table>
+        <thead>
+            <tr>
+                <th>Roll</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>City</th>
+            </tr>
+        </thead>
+
+        <tbody id="mydata">
+            <tr>
+                <td>1</td>
+                <td>Gaurang</td>
+                <td>Pandya</td>
+                <td>Rajkot</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Bhavdeep</td>
+                <td>Sorathiya</td>
+                <td>Surat</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Udit</td>
+                <td>Ghetiya</td>
+                <td>Junagadh</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Yograjsing</td>
+                <td>Rana</td>
+                <td>Ahamdabad</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Yagnik</td>
+                <td>Yadav</td>
+                <td>Baroda</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Rachit</td>
+                <td>Chauhan</td>
+                <td>Rajula</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Rohan</td>
+                <td>Dasadiya</td>
+                <td>Rajkot</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Adarsh</td>
+                <td>Chavda</td>
+                <td>Anand</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Tushar</td>
+                <td>Kadam</td>
+                <td>Pune</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Yash</td>
+                <td>Vaghela</td>
+                <td>Surendranagar</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Milan</td>
+                <td>Nakani</td>
+                <td>Rajkot</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Jayrajsinh</td>
+                <td>Parmar</td>
+                <td>Rajkot</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
+
+<script>
+    /*
+    */ 
+    
+    $(document).ready(function(){
+        // get input field and append event to it
+        $("#search").keyup(function(){
+            // grab the current value of search input box
+            let searchText = $(this).val().toLowerCase();
+            //alert(searchText);
+            // filter code
+            $("#mydata tr").filter(function(){
+                // code for filter rows
+                // step 1 alert($(this).text());
+                // step 2 alert($(this).text().toLowerCase());
+                // step 3 alert($(this).text().toLowerCase().indexOf("rajkot"));
+                $(this).toggle($(this).text().toLowerCase().indexOf(searchText) > -1);
+                /*
+                    hide the rows which are not contains your search text 
+                */ 
+            });
+        });
+    });
+
+</script>

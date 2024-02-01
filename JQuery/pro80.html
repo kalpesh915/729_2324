@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+    
+    </style>
+</head>
+<body>
+    <h1>This is Heading 1</h1>
+    <h2>This is Heading 2</h2>
+    <h3>This is Heading 3</h3>
+    <h4>This is Heading 4</h4>
+    <h5>This is Heading 5</h5>
+    <h6>This is Heading 6</h6>
+    <p>This is Paragrapg Tag</p>
+    <span>This is Span Tag</span>
+    <ul>
+        <li>Rajkot</li>
+        <li>Bhuj</li>
+    </ul>
+</body>
+</html>
+
+<script>
+    // With jQuery you can traverse sideways in the DOM tree to find siblings of an element Siblings share the same parent. 
+    
+    $(document).ready(function(){
+       $("p").prev().css("color", "red");
+    });
+
+</script>
