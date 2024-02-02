@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <button id="btn1">Hide Data</button>
+    <button id="btn2">Show Data</button>
+    <hr>
+    <div id="op">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam sequi veniam iste quis cupiditate, autem recusandae doloremque corporis. Expedita minima sint sed odit magnam modi voluptas eveniet non aliquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officiis eius error ipsa, mollitia excepturi nisi quidem! Porro totam velit, architecto non autem eaque a molestiae, blanditiis accusantium incidunt ratione?Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam sequi veniam iste quis cupiditate, autem recusandae doloremque corporis. Expedita minima sint sed odit magnam modi voluptas eveniet non aliquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officiis eius error ipsa, mollitia excepturi nisi quidem! Porro totam velit, architecto non autem eaque a molestiae, blanditiis accusantium incidunt ratione?Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam sequi veniam iste quis cupiditate, autem recusandae doloremque corporis. Expedita minima sint sed odit magnam modi voluptas eveniet non aliquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officiis eius error ipsa, mollitia excepturi nisi quidem! Porro totam velit, architecto non autem eaque a molestiae, blanditiis accusantium incidunt ratione?</div>
+</body>
+<script>
+    /*
+        What if you wish to use other frameworks on your pages, while still using jQuery?
+
+        As you already know; jQuery uses the $ sign as a shortcut for jQuery.
+        There are many other popular JavaScript frameworks like: Angular, Backbone, Ember, Knockout, and more.
+        What if other JavaScript frameworks also use the $ sign as a shortcut?
+        If two different frameworks are using the same shortcut, one of them might stop working.
+        The jQuery team have already thought about this, and implemented the noConflict() method.
+    */ 
+    
+    const jq = $.noConflict(); // JQuery release Hold on $ shortcut
+
+    jq(document).ready(function(){
+        jq("#btn1").click(function(){
+            jq("#op").hide(3000);
+        });
+
+        jq("#btn2").click(function(){
+            jq("#op").show(3000);
+        });
+    });
+
+</script>

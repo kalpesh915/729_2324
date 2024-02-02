@@ -1,0 +1,11 @@
+to install JSON server
+
+step 1  must install Node JS
+step 2  open command prompt ( ctrl + j <-- for VS code only)
+step 3  run npm install json-server
+step 4  open forlder where you want to store json file
+step 5  run json-server --watch filename.json command
+step 6  open browser and enter URL localhost:3000
+step 7  navigate to your API URL
+step 8  open filename.json in VS Code
+setp 9  you can update your JSON file data

@@ -1,0 +1,39 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "fname": "Gaurav",
+      "lname": "Pandya"
+    },
+    {
+      "id": 2,
+      "fname": "Bhavdeep",
+      "lname": "Sorathiya"
+    },
+    {
+      "id": 3,
+      "fname": "Udit",
+      "lname": "Ghetiya"
+    },
+    {
+      "id": 4,
+      "fname": "Yograjsinh",
+      "lname": "Rana"
+    },
+    {
+      "id": 5,
+      "fname": "Yadav",
+      "lname": "Yagnik"
+    },
+    {
+      "fname": "Rachit",
+      "lname": "Chauhan",
+      "id": 6
+    },
+    {
+      "fname": "Adarsh",
+      "lname": "Chavda",
+      "id": 7
+    }
+  ]
+}

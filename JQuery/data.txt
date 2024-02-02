@@ -1,0 +1,6 @@
+<h1>AJAX is very Easy to apply with JQuery</h1>
+<p id="p1">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ducimus placeat voluptatem alias, at harum similique animi, molestiae eligendi odit quidem maxime tempore explicabo suscipit repudiandae? Debitis quia quas unde.</p>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ducimus placeat voluptatem alias, at harum similique animi, molestiae eligendi odit quidem maxime tempore explicabo suscipit repudiandae? Debitis quia quas unde.</p>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ducimus placeat voluptatem alias, at harum similique animi, molestiae eligendi odit quidem maxime tempore explicabo suscipit repudiandae? Debitis quia quas unde.</p>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ducimus placeat voluptatem alias, at harum similique animi, molestiae eligendi odit quidem maxime tempore explicabo suscipit repudiandae? Debitis quia quas unde.</p>
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ducimus placeat voluptatem alias, at harum similique animi, molestiae eligendi odit quidem maxime tempore explicabo suscipit repudiandae? Debitis quia quas unde.</p>

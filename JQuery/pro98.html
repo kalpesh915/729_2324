@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <button id="btn1">Hide Data</button>
+    <button id="btn2">Show Data</button>
+    <hr>
+    <div id="op">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam sequi veniam iste quis cupiditate, autem recusandae doloremque corporis. Expedita minima sint sed odit magnam modi voluptas eveniet non aliquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officiis eius error ipsa, mollitia excepturi nisi quidem! Porro totam velit, architecto non autem eaque a molestiae, blanditiis accusantium incidunt ratione?Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam sequi veniam iste quis cupiditate, autem recusandae doloremque corporis. Expedita minima sint sed odit magnam modi voluptas eveniet non aliquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officiis eius error ipsa, mollitia excepturi nisi quidem! Porro totam velit, architecto non autem eaque a molestiae, blanditiis accusantium incidunt ratione?Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure quibusdam sequi veniam iste quis cupiditate, autem recusandae doloremque corporis. Expedita minima sint sed odit magnam modi voluptas eveniet non aliquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati officiis eius error ipsa, mollitia excepturi nisi quidem! Porro totam velit, architecto non autem eaque a molestiae, blanditiis accusantium incidunt ratione?</div>
+</body>
+<script>
+    /*
+        If you have a block of jQuery code which uses the $ shortcut and you do not want to change it all, you can pass the $ sign in as a parameter to the ready method. This allows you to access jQuery using $, inside this function - outside of it, you will have to use "jQuery":
+    */ 
+    
+    $.noConflict(); // JQuery release Hold on $ shortcut
+
+    jQuery(document).ready(function($){
+        $("#btn1").click(function(){
+            $("#op").hide(3000);
+        });
+
+        $("#btn2").click(function(){
+            $("#op").show(3000);
+        });
+    });
+
+</script>

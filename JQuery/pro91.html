@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script src="jquery.color.js"></script>
+    <style>
+        #op{
+            border: 1px solid black;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ducimus placeat voluptatem alias, at harum similique animi, molestiae eligendi odit quidem maxime tempore explicabo suscipit repudiandae? Debitis quia quas unde.</p>
+    <button id="btn1">Load Data</button>
+    <div id="op"></div>
+</body>
+<script>
+    /*
+    */ 
+    
+    $(document).ready(function(){
+        $("#btn1").click(function(){
+            $("#op").load("data.txt");
+        });
+    });
+
+</script>
