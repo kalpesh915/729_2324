@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+</body>
+</html>
+
+<script>
+    const JSObject = {
+        roll : 123,
+        fname : "Udit",
+        lname : "Ghetiya",
+        married : false,
+        joinDate : "25 december 2022"
+    }
+
+    document.write("<hr>"+JSObject); // works for JS only
+
+    const JSONData = JSON.stringify(JSObject);
+
+    document.write("<hr>"+JSONData); // works for all languages
+</script>

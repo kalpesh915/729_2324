@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="loadData()">Load API Data</button>
+    <hr>
+    <div id="op"></div>
+</body>
+</html>
+
+<script>
+    const op = document.getElementById("op");
+
+    function loadData(){
+        fetch("data.txt").then((response)=>{
+            //console.log(response);
+            response.text().then((result)=>{
+                //console.log(result);
+                op.innerHTML = result;
+            })
+        },(error)=>{
+            op.innerHTML = error;
+        });
+    }    
+</script>

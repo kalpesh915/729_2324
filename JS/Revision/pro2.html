@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="op"></h1>
+    <hr>
+    <button onclick="validateAge()">Validate Age</button>
+</body>
+</html>
+
+<script>
+    const myPromise = new Promise((resolve, reject)=>{
+        let age  = Number(prompt("Enter Your Age"));
+
+        if(isNaN(age)){
+            reject("Invalid Age Entered");
+        }else if(age < 18){
+            reject("Belowe 18 Years");
+        }else{
+            resolve("Valid Age");
+        }
+    });
+
+    function printer(value){
+        document.getElementById("op").innerHTML = value;
+    }
+
+    function validateAge(){
+        myPromise.then((success)=>{
+            printer(success);
+        }, (error)=>{
+            printer(error)
+        });
+    }
+</script>

@@ -1,0 +1,6 @@
+<h1>Welcome to revision of promise in JS</h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid id perspiciatis sint exercitationem doloremque eos non maiores inventore, quisquam magni, deleniti eius culpa laborum, provident illum facere animi vel tempore!</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid id perspiciatis sint exercitationem doloremque eos non maiores inventore, quisquam magni, deleniti eius culpa laborum, provident illum facere animi vel tempore!</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid id perspiciatis sint exercitationem doloremque eos non maiores inventore, quisquam magni, deleniti eius culpa laborum, provident illum facere animi vel tempore!</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid id perspiciatis sint exercitationem doloremque eos non maiores inventore, quisquam magni, deleniti eius culpa laborum, provident illum facere animi vel tempore!</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid id perspiciatis sint exercitationem doloremque eos non maiores inventore, quisquam magni, deleniti eius culpa laborum, provident illum facere animi vel tempore!</p>

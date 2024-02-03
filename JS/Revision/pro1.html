@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="op">Click the Load data button for gettting Text from data.txt</div>
+    <hr>
+    <button onclick="loadData()">Load Data</button>
+</body>
+</html>
+
+<script>
+    
+    function printer(data){
+        document.getElementById("op").innerHTML = data;
+    }
+        
+    // Producing Code (to prepare output)
+    const myPromise = new Promise((resolve, reject)=>{
+        // Ajax
+        const XMLHttp = new XMLHttpRequest();
+        XMLHttp.open("GET", "data1.txt", true);
+
+        XMLHttp.onreadystatechange = function(){
+            //alert("Called");
+            if(XMLHttp.readyState == 4 && XMLHttp.status == 200){
+                //alert(XMLHttp.responseText);
+                resolve(XMLHttp.responseText);
+            }else if(XMLHttp.readyState == 4 && XMLHttp.status == 404){
+                //alert(XMLHttp.responseText);
+                reject(XMLHttp.responseText);
+            }
+        }
+        XMLHttp.send();
+    });
+
+    function loadData(){
+        // Consuming Code (to exexute promise)
+        myPromise.then((success)=>{
+            printer(success);
+        }, (error)=>{
+            printer(error);
+        });
+    }
+
+</script>
