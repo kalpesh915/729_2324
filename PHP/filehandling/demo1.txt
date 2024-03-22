@@ -1,0 +1,1 @@
+this is sample text to write in file with php script code
