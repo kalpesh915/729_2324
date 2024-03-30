@@ -12,7 +12,7 @@ session_start();
 
 <body>
     <form action="<?php htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
-        <input type="file" name="file1" id="file1" required accept=".jpg, .png, .gif" multiple max="5">
+        <input type="file" name="file1[]" id="file1" required accept=".jpg, .png, .gif" multiple>
         <input type="submit" value="Upload File" name="uploadProcess">
         <input type="reset" value="Reset">
     </form>
@@ -27,7 +27,16 @@ session_start();
 </html>
 
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["uploadProcess"])) {
-    
-}
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["uploadProcess"])) {
+        $files = $_FILES["file1"];
+
+        //print_r($files);
+
+        echo "<hr> Name is <hr>"; print_r($files["name"]);
+        echo "<hr> Type is <hr>"; print_r($files["type"]);
+        echo "<hr> Size is <hr>"; print_r($files["size"]);
+        echo "<hr> Error is <hr>"; print_r($files["error"]);
+        echo "<hr> Full_Path is <hr>"; print_r($files["full_path"]);
+        echo "<hr> TMP_ Name is <hr>"; print_r($files["tmp_name"]);
+    }
 ?>
