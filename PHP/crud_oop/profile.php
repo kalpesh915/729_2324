@@ -14,7 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Logs</title>
+    <title>User Profile</title>
     <?php require_once("commons/cdn.php"); ?>
 </head>
 
@@ -140,20 +140,19 @@
                         unlink($imagepath);
                     }
                     move_uploaded_file($source, $destination);
-                    $users->addProfileImage($roll, $destination);
+                    $users->updateProfileImage($roll, $destination);
+                    $users->logWriter($username, "Profile Photo Updated");
                     $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible'>
                     <button class='btn-close' data-bs-dismiss='alert'></button>
                     <b>Success : </b> New User Created
                 </div>";
                 }else{
-                    $users->addDummyImage($roll);
                     $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible'>
                     <button class='btn-close' data-bs-dismiss='alert'></button>
                     <b>Error : </b> Must Select Image Less then $mb Mb.
                 </div>";    
                 }
             }else{
-                $users->addDummyImage($roll);
                 $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible'>
                     <button class='btn-close' data-bs-dismiss='alert'></button>
                     <b>Error : </b> Must Select Image File Only.
@@ -161,7 +160,7 @@
             }
         }
 
-
+        $users->logWriter($username, "User Profile Updated");
         $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible'>
         <button class='btn-close' data-bs-dismiss='alert'></button>
         <b>Success : </b> Profile Updated

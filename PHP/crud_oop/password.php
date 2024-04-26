@@ -76,11 +76,13 @@
             $npass = sha1($npass);
             if($users->userLogin($username, $upass)){
                 $users->updatePasword($username, $npass);
+                $users->logWriter($username, "Account Password Updated");
                 $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible'>
                 <button class='btn-close' data-bs-dismiss='alert'></button>
                 <b>Success : </b> Password Updated
                 </div>";
             }else{
+                $users->logWriter($username, "Invalid Attempt of Account Password Update");
                 $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible'>
                 <button class='btn-close' data-bs-dismiss='alert'></button>
                 <b>Error : </b> Incorrect Current Password

@@ -163,12 +163,14 @@ if (isset($_POST["signupProcess"])) {
                     <b>Success : </b> New User Created
                 </div>";
                 }else{
+                    $users->addDummyImage($roll);
                     $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible'>
                     <button class='btn-close' data-bs-dismiss='alert'></button>
                     <b>Error : </b> Must Select Image Less then $mb Mb.
                 </div>";    
                 }
             }else{
+                $users->addDummyImage($roll);
                 $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible'>
                     <button class='btn-close' data-bs-dismiss='alert'></button>
                     <b>Error : </b> Must Select Image File Only.

@@ -46,6 +46,11 @@ class Users extends Connection
         $this->connection->query($sqlquery);
     }
 
+    public function updateProfileImage($roll, $imagepath){
+        $sqlquery = "update images set imagepath = '$imagepath' where roll = $roll";
+        $this->connection->query($sqlquery);
+    }
+
     public function getUserLogs($email)
     {
         $sqlquery = "select * from logs where email = '$email'";
@@ -87,6 +92,9 @@ class Users extends Connection
         }
 
         $this->deleteImage($roll);
+
+        $sqlquery = "delete from logs where email = '$email'";
+        $this->connection->query($sqlquery);
 
         $sqlquery = "delete from students where email = '$email'";
         $this->connection->query($sqlquery);
