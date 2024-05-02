@@ -19,9 +19,7 @@ ob_start();
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
 </head>
-
 <body class="bg-gradient-primary">
     <div class="container">
         <!-- Outer Row -->
@@ -36,14 +34,14 @@ ob_start();
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <div class="my-3">
                                             <label class="form-label" for="exampleInputEmail">Enter Email Address...</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                                            <input type="email" class="form-control" id="exampleInputEmail" name="email" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
                                         </div>
                                         <div class="my-3">
                                             <label class="form-label" for="exampleInputPassword">Enter Email Password...</label>
-                                            <input type="password" class="form-control " id="exampleInputPassword" placeholder="Password" required>
+                                            <input type="password" class="form-control " id="exampleInputPassword" name="password" placeholder="Password" required>
                                         </div>
 
                                         <input type="submit" value="Login" class="btn btn-primary" name="loginProcess">
@@ -84,3 +82,28 @@ ob_start();
 </body>
 
 </html>
+
+<?php
+    if(isset($_POST["loginProcess"])){
+        require_once("classes/Users.class.php");
+
+        $email = $users->filterData($_POST["email"]);
+        $password = sha1($users->filterData($_POST["password"]));
+
+        //echo "$email $password";
+        if($users->adminLogin($email, $password)){
+            //echo "True";
+            $users->logWriter($email, "Login Successfully");
+            $_SESSION["email"] = $email;
+            header("location:home.php");
+         }else{
+            //echo "False";
+            $users->logWriter($email, "Invalid Login Attempt");
+            $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+            <strong>Error : </strong> Invalid Username or Password
+            <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+            <span aria-hidden='true'>&times;</span></button></div>";
+            header("location:index.php");          
+        }
+    }
+?>
