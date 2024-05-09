@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2024 at 05:20 AM
+-- Generation Time: May 09, 2024 at 05:13 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,6 +47,51 @@ INSERT INTO `adminusers` (`userid`, `fname`, `lname`, `email`, `password`, `crea
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contactus`
+--
+
+CREATE TABLE `contactus` (
+  `contactid` int(11) NOT NULL,
+  `contactperson` varchar(64) NOT NULL,
+  `phone1` varchar(20) NOT NULL,
+  `phone2` varchar(20) NOT NULL,
+  `email1` varchar(128) NOT NULL,
+  `email2` varchar(128) NOT NULL,
+  `address` varchar(1024) NOT NULL,
+  `googlemap` varchar(2048) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `contactus`
+--
+
+INSERT INTO `contactus` (`contactid`, `contactperson`, `phone1`, `phone2`, `email1`, `email2`, `address`, `googlemap`) VALUES
+(1, 'Yadav Yagnik', '9966332211', '9632147850', 'yagnik@gmail.com', 'yagnik@yahoo.com', 'Aum Nagar', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59122.84500601378!2d70.75069810724004!3d22.157302570469092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3958359f6684fe6b%3A0xf590914470ce3372!2sShapar%2C%20Gujarat%20360024!5e0!3m2!1sen!2sin!4v1714964853402!5m2!1sen!2sin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `faq`
+--
+
+CREATE TABLE `faq` (
+  `faqid` int(11) NOT NULL,
+  `question` varchar(512) NOT NULL,
+  `answer` varchar(2048) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `faqtime` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `faq`
+--
+
+INSERT INTO `faq` (`faqid`, `question`, `answer`, `status`, `faqtime`) VALUES
+(3, 'New Question 2', 'New Answer 2', 1, '2024-05-09 02:44:07');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `logs`
 --
 
@@ -78,7 +123,20 @@ INSERT INTO `logs` (`logid`, `logtime`, `email`, `logmessage`, `status`) VALUES
 (13, '2024-05-03 02:39:32', 'admin@project.com', 'Invalid Attempt of Change Password', 1),
 (14, '2024-05-03 02:39:43', 'admin@project.com', 'Invalid Attempt of Change Password', 1),
 (15, '2024-05-03 02:39:59', 'admin@project.com', 'Password Changes', 1),
-(16, '2024-05-03 03:20:04', 'admin@project.com', 'Logout Successfully', 0);
+(16, '2024-05-03 03:20:04', 'admin@project.com', 'Logout Successfully', 1),
+(17, '2024-05-03 11:11:28', 'admin@project.com', 'Login Successfully', 1),
+(18, '2024-05-03 11:13:35', 'admin@project.com', 'Logout Successfully', 1),
+(19, '2024-05-06 02:17:10', 'admin@project.com', 'Login Successfully', 1),
+(20, '2024-05-06 02:39:04', 'admin@project.com', 'Meta Details Updated to : demo, text, for, meta, keywords, of, website, for meta tags, with php, this is basic example of meta tags, G-YS3ZLEG4S6', 1),
+(21, '2024-05-06 03:00:29', 'admin@project.com', 'Socail Media Links Updated to :  https://www.facebook.com, https://www.twitter.com, https://www.instagram.com, https://www.whatsapp.com, https://www.telegram.com, https://www.snapchat.com, https://www.youtube.com, https://www.linkedin.com', 1),
+(22, '2024-05-06 03:22:23', 'yagnik@gmail.com', 'Contact us Details are Updated With : Yadav Yagnik, 9966332211, 9632147850, yagnik@gmail.com, yagnik@yahoo.com, Aum Nagar, https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59122.84500601378!2d70.75069810724004!3d22.157302570469092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3958359f6684fe6b%3A0xf590914470ce3372!2sShapar%2C%20Gujarat%20360024!5e0!3m2!1sen!2sin!4v1714964853402!5m2!1sen!2sin', 1),
+(23, '2024-05-06 03:26:21', 'admin@project.com', 'Logout Successfully', 0),
+(24, '2024-05-09 02:11:13', 'admin@project.com', 'Login Successfully', 0),
+(25, '2024-05-09 02:42:06', 'admin@project.com', 'New FAQ Demo 1 Added', 0),
+(26, '2024-05-09 02:43:56', 'admin@project.com', 'New FAQ New Question 1 Added', 0),
+(27, '2024-05-09 02:44:07', 'admin@project.com', 'New FAQ New Question 2 Added', 0),
+(28, '2024-05-09 02:58:32', 'admin@project.com', 'Demo 11 FAQ Updated', 0),
+(29, '2024-05-09 02:58:59', 'admin@project.com', 'New Question 112233 FAQ Updated', 0);
 
 -- --------------------------------------------------------
 
@@ -107,6 +165,51 @@ INSERT INTO `messages` (`messageid`, `fname`, `lname`, `senderemail`, `phone`, `
 (1, 'Demo', 'Text', 'demo@gmail.com', '9966332211', 'rajkot', 'Testing', 'Welcome to testing', '2024-05-03 02:48:20', 1),
 (2, 'another text', 'testing', 'demo@gmail.com', '9966554411', 'rajkot', 'Testing ', 'Sample Message', '2024-05-03 02:48:20', 1);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `metatags`
+--
+
+CREATE TABLE `metatags` (
+  `metaid` int(11) NOT NULL,
+  `metakeywords` varchar(512) NOT NULL,
+  `metadescription` varchar(2048) NOT NULL,
+  `googletagid` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `metatags`
+--
+
+INSERT INTO `metatags` (`metaid`, `metakeywords`, `metadescription`, `googletagid`) VALUES
+(1, 'demo, text, for, meta, keywords, of, website, for meta tags, with php', 'this is basic example of meta tags', 'G-YS3ZLEG4S6');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `socialmedia`
+--
+
+CREATE TABLE `socialmedia` (
+  `socialid` int(11) NOT NULL,
+  `facebook` varchar(256) NOT NULL,
+  `twitter` varchar(256) NOT NULL,
+  `instagram` varchar(256) NOT NULL,
+  `whatsapp` varchar(256) NOT NULL,
+  `telegram` varchar(256) NOT NULL,
+  `snapchat` varchar(256) NOT NULL,
+  `youtube` varchar(256) NOT NULL,
+  `linkedin` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `socialmedia`
+--
+
+INSERT INTO `socialmedia` (`socialid`, `facebook`, `twitter`, `instagram`, `whatsapp`, `telegram`, `snapchat`, `youtube`, `linkedin`) VALUES
+(1, 'https://www.facebook.com', 'https://www.twitter.com', 'https://www.instagram.com', 'https://www.whatsapp.com', 'https://www.telegram.com', 'https://www.snapchat.com', 'https://www.youtube.com', 'https://www.linkedin.com');
+
 --
 -- Indexes for dumped tables
 --
@@ -116,6 +219,18 @@ INSERT INTO `messages` (`messageid`, `fname`, `lname`, `senderemail`, `phone`, `
 --
 ALTER TABLE `adminusers`
   ADD PRIMARY KEY (`userid`);
+
+--
+-- Indexes for table `contactus`
+--
+ALTER TABLE `contactus`
+  ADD PRIMARY KEY (`contactid`);
+
+--
+-- Indexes for table `faq`
+--
+ALTER TABLE `faq`
+  ADD PRIMARY KEY (`faqid`);
 
 --
 -- Indexes for table `logs`
@@ -130,6 +245,18 @@ ALTER TABLE `messages`
   ADD PRIMARY KEY (`messageid`);
 
 --
+-- Indexes for table `metatags`
+--
+ALTER TABLE `metatags`
+  ADD PRIMARY KEY (`metaid`);
+
+--
+-- Indexes for table `socialmedia`
+--
+ALTER TABLE `socialmedia`
+  ADD PRIMARY KEY (`socialid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -140,16 +267,40 @@ ALTER TABLE `adminusers`
   MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `contactus`
+--
+ALTER TABLE `contactus`
+  MODIFY `contactid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `faq`
+--
+ALTER TABLE `faq`
+  MODIFY `faqid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
   MODIFY `messageid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `metatags`
+--
+ALTER TABLE `metatags`
+  MODIFY `metaid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `socialmedia`
+--
+ALTER TABLE `socialmedia`
+  MODIFY `socialid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

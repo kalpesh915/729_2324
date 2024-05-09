@@ -46,21 +46,27 @@
             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw"></i>
                 <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
+                <span class="badge badge-danger badge-counter"><?php echo $counters->getUnreadMessageCount(); ?></span>
             </a>
             <!-- Dropdown - Messages -->
             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
                     Message Center
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                    <div>
-                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
-                            told me that people say this to all dogs, even if they aren't good...</div>
-                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                    </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                <?php 
+                    $result = $counters->loadSomeMessages(3);
+
+                    while($row = $result->fetch_assoc()){
+                        echo "<a class='dropdown-item d-flex align-items-center' href='readmessage.php?messageid=$row[messageid]'>
+                        <div>
+                            <div class='text-truncate'>$row[fname] : $row[subject]</div>
+                            <div class='small text-gray-500'>$row[messagetime]</div>
+                        </div>
+                    </a>";
+                    }
+                ?>
+                
+                <a class="dropdown-item text-center small text-gray-500" href="viewallunreadmessages.php">Read More Messages</a>
             </div>
         </li>
 
@@ -74,11 +80,19 @@
             </a>
             <!-- Dropdown - User Information -->
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="profile.php">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
                 </a>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="password.php">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Password
+                </a>
+                <a class="dropdown-item" href="seo.php">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    SEO
+                </a>
+                <a class="dropdown-item" href="settings.php">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Settings
                 </a>

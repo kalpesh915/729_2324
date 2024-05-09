@@ -26,14 +26,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
             aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
-            <span>Components</span>
+            <i class="fas fa-fw fa-box-open"></i>
+            <span>Products</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="buttons.html">Buttons</a>
-                <a class="collapse-item" href="cards.html">Cards</a>
+                <a class="collapse-item" href="buttons.html">Add</a>
+                <a class="collapse-item" href="cards.html">Manage</a>
             </div>
         </div>
     </li>
@@ -57,6 +56,21 @@
     </li>
 
 
+     <!-- Messages -->
+     <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMsg" aria-expanded="true"
+            aria-controls="collapseMsg">
+            <i class="fas fa-fw fa-envelope"></i>
+            <span>Messages</span>
+        </a>
+        <div id="collapseMsg" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="viewallunreadmessages.php">Unread </a>
+                <a class="collapse-item" href="viewallmessages.php">All</a>
+            </div>
+        </div>
+    </li>
+
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
@@ -66,30 +80,22 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="login.html">Login</a>
-                <a class="collapse-item" href="register.html">Register</a>
-                <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                <div class="collapse-divider"></div>
-                <h6 class="collapse-header">Other Pages:</h6>
-                <a class="collapse-item" href="404.html">404 Page</a>
-                <a class="collapse-item" href="blank.html">Blank Page</a>
+                <a class="collapse-item" href="contactus.php">Contact</a>
+                <a class="collapse-item" href="social.php">Social Media</a>
+                <a class="collapse-item" href="seo.php">Meta Tags</a>
+                <a class="collapse-item" href="faq.php">FAQ</a>
+                <a class="collapse-item" href="sliders.php">Sliders</a>
+                <a class="collapse-item" href="gallery.php">Gallery</a>
             </div>
         </div>
     </li>
 
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
-    </li>
 
-    <!-- Nav Item - Tables -->
+    <!-- Nav Item - Slider -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+        <a class="nav-link" href="team.php">
+            <i class="fas fa-fw fa-users"></i>
+            <span>Team</span></a>
     </li>
 
     <!-- Divider -->
