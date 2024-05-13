@@ -14,7 +14,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="home.php">
+        <a class="nav-link" href="home">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -37,25 +37,15 @@
         </div>
     </li>
 
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-            aria-expanded="true" aria-controls="collapseUtilities">
-            <i class="fas fa-fw fa-wrench"></i>
-            <span>Utilities</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-            <div class="bg-white py-2 collapse-inner rounded">
-                <h6 class="collapse-header">Custom Utilities:</h6>
-                <a class="collapse-item" href="utilities-color.html">Colors</a>
-                <a class="collapse-item" href="utilities-border.html">Borders</a>
-                <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                <a class="collapse-item" href="utilities-other.html">Other</a>
-            </div>
-        </div>
+
+     <!-- Nav Item - Category -->
+     <li class="nav-item">
+        <a class="nav-link" href="category">
+            <i class="fas fa-fw fa-list"></i>
+            <span>Category</span></a>
     </li>
 
-
+    
      <!-- Messages -->
      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseMsg" aria-expanded="true"
@@ -65,8 +55,8 @@
         </a>
         <div id="collapseMsg" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="viewallunreadmessages.php">Unread </a>
-                <a class="collapse-item" href="viewallmessages.php">All</a>
+                <a class="collapse-item" href="viewallunreadmessages">Unread </a>
+                <a class="collapse-item" href="viewallmessages">All</a>
             </div>
         </div>
     </li>
@@ -80,12 +70,12 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="contactus.php">Contact</a>
-                <a class="collapse-item" href="social.php">Social Media</a>
-                <a class="collapse-item" href="seo.php">Meta Tags</a>
-                <a class="collapse-item" href="faq.php">FAQ</a>
-                <a class="collapse-item" href="sliders.php">Sliders</a>
-                <a class="collapse-item" href="gallery.php">Gallery</a>
+                <a class="collapse-item" href="contactus">Contact</a>
+                <a class="collapse-item" href="social">Social Media</a>
+                <a class="collapse-item" href="seo">Meta Tags</a>
+                <a class="collapse-item" href="faq">FAQ</a>
+                <a class="collapse-item" href="sliders">Sliders</a>
+                <a class="collapse-item" href="gallery">Gallery</a>
             </div>
         </div>
     </li>
@@ -93,9 +83,16 @@
 
     <!-- Nav Item - Slider -->
     <li class="nav-item">
-        <a class="nav-link" href="team.php">
+        <a class="nav-link" href="team">
             <i class="fas fa-fw fa-users"></i>
             <span>Team</span></a>
+    </li>
+
+    <!-- Nav Item - Slider -->
+    <li class="nav-item">
+        <a class="nav-link" href="subscribers">
+            <i class="fas fa-fw fa-bell"></i>
+            <span>Subscribers</span></a>
     </li>
 
     <!-- Divider -->

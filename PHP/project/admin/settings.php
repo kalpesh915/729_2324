@@ -1,5 +1,12 @@
 <?php
-    require_once("commons/session.php");
+require_once("commons/session.php");
+require_once("classes/Settings.class.php");
+
+$result = $settings->getSettings();
+
+while ($row = $result->fetch_assoc()) {
+    extract($row);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +43,7 @@
             <div id="content">
 
                 <?php
-                    require_once("commons/topbar.php");
+                require_once("commons/topbar.php");
                 ?>
 
                 <!-- Begin Page Content -->
@@ -44,13 +51,13 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Page Title</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Change Settings</h1>
                         <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="history.back();"><i class="fas fa-arrow-left fa-sm text-white-50"></i> Back</button>
                     </div>
 
-                   <?php
-                        //require_once("commons/datacount.php");
-                   ?>
+                    <?php
+                    //require_once("commons/datacount.php");
+                    ?>
 
                     <div class="row">
                         <!-- Area Chart -->
@@ -58,11 +65,56 @@
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Title</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary"></h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <!-- Custom Code Here -->
+                                    <?php
+                                    if (isset($_SESSION["msg"])) {
+                                        echo $_SESSION["msg"];
+                                        unset($_SESSION["msg"]);
+                                    }
+                                    ?>
+                                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+                                        <div class="my-3">
+                                            <label for="googletranslate">Change Google Translate to : </label>
+
+                                            <select name="googletranslate" id="googletranslate" class="form-control">
+                                                <?php
+                                                if ($googletranslate == 1) {
+                                                    echo "<option value='1' selected>Enable</option>
+                                                        <option value='0'>Disable</option>";
+                                                } else {
+                                                    echo "<option value='1'>Enable</option>
+                                                        <option value='0' selected>Disable</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="my-3">
+                                            <label for="careeroption">Change Career Option to : </label>
+
+                                            <select name="careeroption" id="careeroption" class="form-control">
+                                                <?php
+                                                if ($careeroption == 1) {
+                                                    echo "<option value='1' selected>Enable</option>
+                                                        <option value='0'>Disable</option>";
+                                                } else {
+                                                    echo "<option value='1'>Enable</option>
+                                                        <option value='0' selected>Disable</option>";
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+
+                                        <div class="my-3">
+                                            <input type="submit" value="Change Settings" class="btn btn-primary" name="updateProcess">
+                                            <input type="reset" value="Reset" class="btn btn-danger">
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -71,8 +123,8 @@
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
-            <?php 
-                require_once("commons/footer.php");
+            <?php
+            require_once("commons/footer.php");
             ?>
         </div>
         <!-- End of Content Wrapper -->
@@ -97,4 +149,21 @@
     <!-- Page level custom scripts -->
 
 </body>
+
 </html>
+
+<?php
+if (isset($_POST["updateProcess"])) {
+    $googletranslate = $_POST["googletranslate"];
+    $careeroption = $_POST["careeroption"];
+
+    $settings->updateSettings($googletranslate, $careeroption);
+    $settings->logWriter($email, "Setting Changed to Google Translate to $googletranslate and Career option to $careeroption");
+
+
+    $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'> <strong>Success : </strong> Setting Saved Successfully
+    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+    <span aria-hidden='true'>&times;</span></button></div>";
+    header("location:settings");
+}
+?>
