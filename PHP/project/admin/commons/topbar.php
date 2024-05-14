@@ -96,6 +96,10 @@
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                     Settings
                 </a>
+                <a class="dropdown-item" href="backup">
+                    <i class="fas fa-hdd fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Backup
+                </a>
                 <a class="dropdown-item" href="activitylogs">
                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                     Activity Log

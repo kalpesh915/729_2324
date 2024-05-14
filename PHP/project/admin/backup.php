@@ -1,5 +1,5 @@
 <?php
-require_once("commons/session.php");
+    require_once("commons/session.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,8 +19,6 @@ require_once("commons/session.php");
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -38,7 +36,7 @@ require_once("commons/session.php");
             <div id="content">
 
                 <?php
-                require_once("commons/topbar.php");
+                    require_once("commons/topbar.php");
                 ?>
 
                 <!-- Begin Page Content -->
@@ -46,13 +44,13 @@ require_once("commons/session.php");
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">All Logs</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Database Backup</h1>
                         <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="history.back();"><i class="fas fa-arrow-left fa-sm text-white-50"></i> Back</button>
                     </div>
 
-                    <?php
-                    //require_once("commons/datacount.php");
-                    ?>
+                   <?php
+                        //require_once("commons/datacount.php");
+                   ?>
 
                     <div class="row">
                         <!-- Area Chart -->
@@ -60,42 +58,20 @@ require_once("commons/session.php");
                             <div class="card shadow mb-4">
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary"></h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Title</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <!-- Custom Code Here -->
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Log Time</th>
-                                                    <th>Log Message</th>
-                                                </tr>
-                                            </thead>
-                                            <tfoot>
-                                                <tr>
-                                                    <th>Log Time</th>
-                                                    <th>Log Message</th>
-                                                </tr>
-                                            </tfoot>
-                                            <tbody>
-                                                <?php
-                                                    $result = $counters->getAllLogs();
-
-                                                    while($row = $result->fetch_assoc()){
-                                                        echo "<tr>
-                                                            <td>$row[logtime]</td>
-                                                            <td>$row[logmessage]</td>
-                                                        </tr>";
-                                                    }
-
-                                                    $counters->markAllRead();
-                                                ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
+                                    <?php 
+                                        if(isset($_SESSION["msg"])){
+                                            echo $_SESSION["msg"];
+                                            unset($_SESSION["msg"]);
+                                        }
+                                    ?>
+                                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                        <input type="submit" name="backupProcess" class="btn btn-primary" value="Get Database Backup ">
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -104,8 +80,8 @@ require_once("commons/session.php");
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
-            <?php
-            require_once("commons/footer.php");
+            <?php 
+                require_once("commons/footer.php");
             ?>
         </div>
         <!-- End of Content Wrapper -->
@@ -130,16 +106,22 @@ require_once("commons/session.php");
     <!-- Page level custom scripts -->
 
 </body>
-
 </html>
-<script>
-    $('#dataTable').DataTable({
-        order:[[0, 'desc']]
-    });
-</script>
-<!-- Page level plugins -->
-<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-<!-- Page level custom scripts -->
-<script src="js/demo/datatables-demo.js"></script>
+<?php
+    if(isset($_POST["backupProcess"])){
+
+        $filename='backup/database_backup_'.date('dmY_hisa').'.sql';
+        //$result=exec('mysqldump  -p -u root  729project > backups/'.$filename, $output);
+        exec("mysqldump --user='root' --password='' --host='localhost' '729project' --result-file={$filename} 2>&1", $output);
+
+     var_dump($output);
+        // print_r($output);
+        // if(empty($output)){
+        //     echo "Error";
+        // }
+        // else {
+        //     echo "Success";
+        // }
+    }
+?>

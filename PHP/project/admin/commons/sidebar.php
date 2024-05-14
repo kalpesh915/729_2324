@@ -95,6 +95,12 @@
             <span>Subscribers</span></a>
     </li>
 
+    <li class="nav-item">
+        <a class="nav-link" href="services">
+            <i class="fas fa-fw fa-hands"></i>
+            <span>Services</span></a>
+    </li>
+
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 
