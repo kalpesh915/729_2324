@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2024 at 05:13 AM
+-- Generation Time: May 17, 2024 at 05:16 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -105,6 +105,22 @@ INSERT INTO `faq` (`faqid`, `question`, `answer`, `status`, `faqtime`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `images`
+--
+
+CREATE TABLE `images` (
+  `imageid` int(11) NOT NULL,
+  `imagetitle` varchar(128) NOT NULL,
+  `imagedescription` varchar(512) NOT NULL,
+  `imagepath` varchar(512) NOT NULL,
+  `imagetype` tinyint(4) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `logs`
 --
 
@@ -174,7 +190,27 @@ INSERT INTO `logs` (`logid`, `logtime`, `email`, `logmessage`, `status`) VALUES
 (51, '2024-05-14 02:44:45', 'admin@project.com', 'User Service Updated in Database', 1),
 (52, '2024-05-14 02:45:04', 'admin@project.com', 'User Service Updated in Database', 1),
 (53, '2024-05-14 02:45:27', 'admin@project.com', 'Bus Service Updated in Database', 1),
-(54, '2024-05-14 03:12:18', 'admin@project.com', 'Logout Successfully', 0);
+(54, '2024-05-14 03:12:18', 'admin@project.com', 'Logout Successfully', 1),
+(55, '2024-05-14 03:38:21', 'admin@project.com', 'Login Successfully', 1),
+(56, '2024-05-14 03:46:30', 'admin@project.com', 'Logout Successfully', 1),
+(57, '2024-05-15 01:54:32', 'admin@project.com', 'Login Successfully', 1),
+(58, '2024-05-15 02:42:15', 'admin@project.com', 'img/Slider 16267 img1.jpg Image Uploaded on Server', 1),
+(59, '2024-05-15 02:43:31', 'admin@project.com', 'img/Slider 77861 img2.jpg Image Uploaded on Server', 1),
+(60, '2024-05-15 03:23:49', 'admin@project.com', 'Logout Successfully', 1),
+(61, '2024-05-16 02:08:04', 'admin@project.com', 'Login Successfully', 1),
+(62, '2024-05-17 02:08:36', 'admin@project.com', 'Login Successfully', 1),
+(63, '2024-05-17 02:32:43', 'admin@project.com', 'Udit Ghetiya Team Member Added in Database', 1),
+(64, '2024-05-17 02:33:39', 'admin@project.com', 'Yadav Yagnik Team Member Added in Database', 1),
+(65, '2024-05-17 02:39:54', 'admin@project.com', 'Udit Ghetiya Team Member Added in Database', 1),
+(66, '2024-05-17 03:02:48', 'admin@project.com', 'Udit Patel Team Member Updated in Database', 1),
+(67, '2024-05-17 03:03:20', 'admin@project.com', 'Udit Ghetiya Team Member Updated in Database', 1),
+(68, '2024-05-17 03:03:27', 'admin@project.com', 'Udit Ghetiya Team Member Updated in Database', 1),
+(69, '2024-05-17 03:03:42', 'admin@project.com', 'Udit Patel Team Member Updated in Database', 1),
+(70, '2024-05-17 03:04:03', 'admin@project.com', 'Udit Ghetiya Team Member Updated in Database', 1),
+(71, '2024-05-17 03:05:49', 'admin@project.com', 'Udit Patel Team Member Updated in Database', 1),
+(72, '2024-05-17 03:06:20', 'admin@project.com', 'Udit Patel Team Member Updated in Database', 1),
+(73, '2024-05-17 03:06:31', 'admin@project.com', 'Udit Patel Team Member Updated in Database', 1),
+(74, '2024-05-17 03:13:58', 'admin@project.com', 'Udit Patel team member Deleted', 1);
 
 -- --------------------------------------------------------
 
@@ -317,6 +353,30 @@ INSERT INTO `subscribers` (`subscriberid`, `subscribetime`, `subscriberemail`, `
 (5, '2024-05-13 02:24:39', 'gaurav@gmail.com', 1),
 (6, '2024-05-13 02:24:39', 'adarsh@gmail.com', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `team`
+--
+
+CREATE TABLE `team` (
+  `teamid` int(11) NOT NULL,
+  `membername` varchar(64) NOT NULL,
+  `memberdesignation` varchar(128) NOT NULL,
+  `memberdescription` varchar(128) NOT NULL,
+  `memberfacebook` varchar(256) NOT NULL,
+  `memberinstagram` varchar(256) NOT NULL,
+  `membertwitter` varchar(256) NOT NULL,
+  `memberlinkedin` varchar(256) NOT NULL,
+  `memberyoutube` varchar(256) NOT NULL,
+  `membersnapchat` varchar(256) NOT NULL,
+  `membertelegram` varchar(256) NOT NULL,
+  `memberphoto` varchar(256) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 1,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Indexes for dumped tables
 --
@@ -344,6 +404,12 @@ ALTER TABLE `contactus`
 --
 ALTER TABLE `faq`
   ADD PRIMARY KEY (`faqid`);
+
+--
+-- Indexes for table `images`
+--
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`imageid`);
 
 --
 -- Indexes for table `logs`
@@ -388,6 +454,12 @@ ALTER TABLE `subscribers`
   ADD PRIMARY KEY (`subscriberid`);
 
 --
+-- Indexes for table `team`
+--
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`teamid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -416,10 +488,16 @@ ALTER TABLE `faq`
   MODIFY `faqid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `imageid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `messages`
@@ -456,6 +534,12 @@ ALTER TABLE `socialmedia`
 --
 ALTER TABLE `subscribers`
   MODIFY `subscriberid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `team`
+--
+ALTER TABLE `team`
+  MODIFY `teamid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
