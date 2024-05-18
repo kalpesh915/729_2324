@@ -80,6 +80,21 @@
         </div>
     </li>
 
+    <!-- Messages -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseImg" aria-expanded="true"
+            aria-controls="collapseImg">
+            <i class="fas fa-fw fa-image"></i>
+            <span>Images</span>
+        </a>
+        <div id="collapseImg" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="addimage">Add Image</a>
+                <a class="collapse-item" href="manageslider">Slider Images</a>
+                <a class="collapse-item" href="managegallery">Gallery Images</a>
+            </div>
+        </div>
+    </li>
 
     <!-- Nav Item - Slider -->
     <li class="nav-item">
@@ -99,6 +114,12 @@
         <a class="nav-link" href="services">
             <i class="fas fa-fw fa-hands"></i>
             <span>Services</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="career">
+            <i class="fas fa-fw fa-graduation-cap"></i>
+            <span>Career</span></a>
     </li>
 
     <!-- Divider -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2024 at 05:16 AM
+-- Generation Time: May 18, 2024 at 05:19 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.12
 
@@ -47,6 +47,31 @@ INSERT INTO `adminusers` (`userid`, `fname`, `lname`, `email`, `password`, `crea
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `career`
+--
+
+CREATE TABLE `career` (
+  `applicationid` int(11) NOT NULL,
+  `fname` varchar(64) NOT NULL,
+  `lname` varchar(64) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `dateofbirth` date NOT NULL,
+  `jobposition` varchar(128) NOT NULL,
+  `education` varchar(512) NOT NULL,
+  `experience` varchar(512) NOT NULL,
+  `phone` varchar(20) NOT NULL,
+  `emailaddress` varchar(128) NOT NULL,
+  `address` varchar(512) NOT NULL,
+  `coverlatter` varchar(2048) NOT NULL,
+  `resumepath` varchar(512) NOT NULL,
+  `status` tinyint(4) NOT NULL DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categorys`
 --
 
@@ -79,7 +104,7 @@ CREATE TABLE `contactus` (
 --
 
 INSERT INTO `contactus` (`contactid`, `contactperson`, `phone1`, `phone2`, `email1`, `email2`, `address`, `googlemap`) VALUES
-(1, 'Yadav Yagnik', '9966332211', '9632147850', 'yagnik@gmail.com', 'yagnik@yahoo.com', 'Aum Nagar', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59122.84500601378!2d70.75069810724004!3d22.157302570469092!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3958359f6684fe6b%3A0xf590914470ce3372!2sShapar%2C%20Gujarat%20360024!5e0!3m2!1sen!2sin!4v1714964853402!5m2!1sen!2sin');
+(1, 'Yadav Yagnik', '9966332211', '9632147850', 'yagnik@gmail.com', 'yagnik@yahoo.com', 'Aum Nagar', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.6003878368315!2d70.7786052746219!3d22.293122443156776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca246c0ccfc7%3A0x7ac4068b39bb6418!2sBAPS%20Swaminarayan%20mandir%20Sant%20Ashram!5e0!3m2!1sen!2sin!4v1715998907220!5m2!1sen!2sin');
 
 -- --------------------------------------------------------
 
@@ -210,7 +235,11 @@ INSERT INTO `logs` (`logid`, `logtime`, `email`, `logmessage`, `status`) VALUES
 (71, '2024-05-17 03:05:49', 'admin@project.com', 'Udit Patel Team Member Updated in Database', 1),
 (72, '2024-05-17 03:06:20', 'admin@project.com', 'Udit Patel Team Member Updated in Database', 1),
 (73, '2024-05-17 03:06:31', 'admin@project.com', 'Udit Patel Team Member Updated in Database', 1),
-(74, '2024-05-17 03:13:58', 'admin@project.com', 'Udit Patel team member Deleted', 1);
+(74, '2024-05-17 03:13:58', 'admin@project.com', 'Udit Patel team member Deleted', 1),
+(75, '2024-05-17 03:17:00', 'admin@project.com', 'Logout Successfully', 1),
+(76, '2024-05-18 02:08:40', 'admin@project.com', 'Login Successfully', 1),
+(77, '2024-05-18 02:21:13', 'yagnik@gmail.com', 'Contact us Details are Updated With : Yadav Yagnik, 9966332211, 9632147850, yagnik@gmail.com, yagnik@yahoo.com, Aum Nagar, https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.6003878368315!2d70.7786052746219!3d22.293122443156776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca240d3709dd%3A0xf6a56b3436613e93!2sSahakar%20Nagar%20Main%20Rd%2C%20Vaishali%20Nagar%2C%20Rajkot%2C%20Gujarat%20360007!5e0!3m2!1sen!2sin!4v1715998819913!5m2!1sen!2sin', 1),
+(78, '2024-05-18 02:22:08', 'yagnik@gmail.com', 'Contact us Details are Updated With : Yadav Yagnik, 9966332211, 9632147850, yagnik@gmail.com, yagnik@yahoo.com, Aum Nagar, https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.6003878368315!2d70.7786052746219!3d22.293122443156776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3959ca246c0ccfc7%3A0x7ac4068b39bb6418!2sBAPS%20Swaminarayan%20mandir%20Sant%20Ashram!5e0!3m2!1sen!2sin!4v1715998907220!5m2!1sen!2sin', 1);
 
 -- --------------------------------------------------------
 
@@ -388,6 +417,12 @@ ALTER TABLE `adminusers`
   ADD PRIMARY KEY (`userid`);
 
 --
+-- Indexes for table `career`
+--
+ALTER TABLE `career`
+  ADD PRIMARY KEY (`applicationid`);
+
+--
 -- Indexes for table `categorys`
 --
 ALTER TABLE `categorys`
@@ -470,6 +505,12 @@ ALTER TABLE `adminusers`
   MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `career`
+--
+ALTER TABLE `career`
+  MODIFY `applicationid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `categorys`
 --
 ALTER TABLE `categorys`
@@ -497,7 +538,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `logid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `messages`
