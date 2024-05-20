@@ -1,5 +1,16 @@
 <?php
-    require_once("commons/session.php");
+
+use Ifsnop\Mysqldump\Mysqldump;
+
+require_once("commons/session.php");
+
+// code for delete file from backups folder
+
+if(isset($_GET["delete"])){
+    $filepath = $_GET["filepath"];
+    unlink($filepath);
+    header("location:backup");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +30,8 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom styles for this page -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -36,7 +49,7 @@
             <div id="content">
 
                 <?php
-                    require_once("commons/topbar.php");
+                require_once("commons/topbar.php");
                 ?>
 
                 <!-- Begin Page Content -->
@@ -48,9 +61,9 @@
                         <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" onclick="history.back();"><i class="fas fa-arrow-left fa-sm text-white-50"></i> Back</button>
                     </div>
 
-                   <?php
-                        //require_once("commons/datacount.php");
-                   ?>
+                    <?php
+                    //require_once("commons/datacount.php");
+                    ?>
 
                     <div class="row">
                         <!-- Area Chart -->
@@ -63,15 +76,51 @@
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <!-- Custom Code Here -->
-                                    <?php 
-                                        if(isset($_SESSION["msg"])){
-                                            echo $_SESSION["msg"];
-                                            unset($_SESSION["msg"]);
-                                        }
+                                    <?php
+                                    if (isset($_SESSION["msg"])) {
+                                        echo $_SESSION["msg"];
+                                        unset($_SESSION["msg"]);
+                                    }
                                     ?>
                                     <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                         <input type="submit" name="backupProcess" class="btn btn-primary" value="Get Database Backup ">
                                     </form>
+
+                                    <hr>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>File Name</th>
+                                                    <th>Download</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>File Name</th>
+                                                    <th>Download</th>
+                                                    <th>Delete</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <?php
+                                                    // code for scan backup folder
+                                                    $myfiles = scandir("backups/");
+                                                    //print_r($myfiles);
+                                                    $count = count($myfiles);
+
+                                                    for($i=2; $i< $count; $i++){
+                                                        echo "<tr>
+                                                            <td>$myfiles[$i]</td>
+                                                            <td><a href='backups/$myfiles[$i]' class='btn btn-primary' download='Backup of Sql $myfiles[$i]'>Download</td>
+                                                            <td><button class='btn btn-danger' type='button' onclick=deleteFile('$myfiles[$i]')>Delete</button></td>
+                                                        <tr>";
+                                                    }
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -80,8 +129,8 @@
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
-            <?php 
-                require_once("commons/footer.php");
+            <?php
+            require_once("commons/footer.php");
             ?>
         </div>
         <!-- End of Content Wrapper -->
@@ -103,25 +152,37 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level custom scripts -->
+    <!-- Page level plugins -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
+    <!-- Page level custom scripts -->
+    <script src="js/demo/datatables-demo.js"></script>
 </body>
+<script>
+    function deleteFile(filepath){
+        //alert(filepath);
+        if(confirm("Are you Sure to delete this Database Backup File Named "+filepath+"???")){
+            location.assign("backup?delete=1&filepath=backups/"+filepath);
+        }
+    }
+</script>
 </html>
 
 <?php
-    if(isset($_POST["backupProcess"])){
+if (isset($_POST["backupProcess"])) {
 
-        $filename='backup/database_backup_'.date('dmY_hisa').'.sql';
-        //$result=exec('mysqldump  -p -u root  729project > backups/'.$filename, $output);
-        exec("mysqldump --user='root' --password='' --host='localhost' '729project' --result-file={$filename} 2>&1", $output);
+    $backupfile = "backups/database_backup_on_" . date("dmY-His") . ".sql";
+    require_once("mysqldump/Mysqldump.php");
 
-     var_dump($output);
-        // print_r($output);
-        // if(empty($output)){
-        //     echo "Error";
-        // }
-        // else {
-        //     echo "Success";
-        // }
-    }
+    $dump = new Mysqldump("mysql:host=localhost;dbname=729project", "root", "");
+    $dump->start($backupfile);
+
+    $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'>
+        <strong>Success : </strong> Database Backup Successfully as File <b>'$backupfile' </b> on your Storage
+        <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+        <span aria-hidden='true'>&times;</span>
+        </button></div>";
+    header("location:backup");
+}
 ?>

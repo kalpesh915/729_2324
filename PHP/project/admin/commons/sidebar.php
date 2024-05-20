@@ -74,8 +74,6 @@
                 <a class="collapse-item" href="social">Social Media</a>
                 <a class="collapse-item" href="seo">Meta Tags</a>
                 <a class="collapse-item" href="faq">FAQ</a>
-                <a class="collapse-item" href="sliders">Sliders</a>
-                <a class="collapse-item" href="gallery">Gallery</a>
             </div>
         </div>
     </li>
