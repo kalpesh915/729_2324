@@ -120,15 +120,15 @@ require_once("classes/Services.class.php");
 
                                                     while($row = $result->fetch_assoc()){
                                                         if($row["status"] == 1){
-                                                            $stausbtn = "<a href='services?serviceid=$row[serviceid]&status=0' class='btn btn-danger'>Disable</a>";
+                                                            $statusbtn = "<a href='services?serviceid=$row[serviceid]&status=0' class='btn btn-danger'>Disable</a>";
                                                         }else{
-                                                            $stausbtn = "<a href='services?serviceid=$row[serviceid]&status=1' class='btn btn-success'>Enable</a>";
+                                                            $statusbtn = "<a href='services?serviceid=$row[serviceid]&status=1' class='btn btn-success'>Enable</a>";
                                                         }
 
                                                         echo "<tr>
                                                             <td>$row[servicetitle]</td>
                                                             <td><i class='$row[serviceicon]'></i></td>
-                                                            <td>$stausbtn</td>
+                                                            <td>$statusbtn</td>
                                                             <td><a href='editservice?serviceid=$row[serviceid]' class='btn btn-primary'>Edit</a></td>
                                                         </tr>";
                                                     }

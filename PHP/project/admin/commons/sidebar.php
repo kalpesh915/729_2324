@@ -24,15 +24,15 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-            aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct" aria-expanded="true"
+            aria-controls="collapseProduct">
             <i class="fas fa-fw fa-box-open"></i>
             <span>Products</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseProduct" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="buttons.html">Add</a>
-                <a class="collapse-item" href="cards.html">Manage</a>
+                <a class="collapse-item" href="addproduct">Add</a>
+                <a class="collapse-item" href="manageproduct">Manage</a>
             </div>
         </div>
     </li>
