@@ -38,7 +38,18 @@ require_once("commons/session.php");
             <div id="content">
 
                 <?php
-                require_once("commons/topbar.php");
+                    require_once("commons/topbar.php");
+
+                    if(isset($_POST["deleteProcess"])){
+                        $password = sha1($counters->filterData($_POST["password"]));
+                        $selection = $counters->filterData($_POST["selection"]);
+
+                        if($counters->deleteLogs($email, $password, $selection)){
+                            $counters->logWriter($email, "Log Messages Deleted");
+                        }else{
+                            $_SESSION["msg"] = "<div class='alert alert-danger alert-dismissible fade show' role='alert'><strong>Error : </strong> Incorrect Password <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+                        }
+                    }
                 ?>
 
                 <!-- Begin Page Content -->
@@ -61,10 +72,17 @@ require_once("commons/session.php");
                                 <!-- Card Header - Dropdown -->
                                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary"></h6>
+                                    <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#myModal">Delete Logs</button>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
                                     <!-- Custom Code Here -->
+                                    <?php 
+                                        if(isset($_SESSION["msg"])){
+                                            echo $_SESSION["msg"];
+                                            unset($_SESSION["msg"]);
+                                        }
+                                    ?>
                                     <div class="table-responsive">
                                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                             <thead>
@@ -128,6 +146,47 @@ require_once("commons/session.php");
     <script src="js/sb-admin-2.min.js"></script>
 
     <!-- Page level custom scripts -->
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Activity Logs</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+            <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                <div class="my-3">
+                    <label for="upass">Enter Current Password </label>
+                    <input type="password" name="password" id="password" required class="form-control">
+                </div>
+                <div class="my-3">
+                    <label for="selection">Select What to Delete </label>
+                    <select name="selection" id="selection" required class="form-control">
+                        <option></option>
+                        <option value="1">Login and Logout Logs</option>
+                        <option value="2">All Logs</option>
+                    </select>
+                </div>
+                <div class="my-3">
+                    <input type="submit" value="Delete Logs" class="btn btn-danger" name="deleteProcess">
+                </div>
+            </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 </body>
 

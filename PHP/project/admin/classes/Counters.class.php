@@ -71,6 +71,24 @@
             $this->connection->query($sqlquery);
         }
 
+        public function deleteLogs($email, $password, $selection){
+            $sqlquery = "select * from adminusers where email = '$email' and password = '$password'";
+            // echo $sqlquery;
+            $result = $this->connection->query($sqlquery);
+
+            if($result->num_rows > 0){
+                if($selection == 1){
+                    $sqlquery = "delete from logs where logmessage like '%log%'";
+                }else{
+                    $sqlquery = "delete from logs";
+                }
+                $this->connection->query($sqlquery);
+                return true;
+            }else{
+                return false;
+            }
+        }
+
         /// function for Home Page
         public function getUsername($email){
             $sqlquery = "select fname, lname from adminusers where email = '$email'";
@@ -85,6 +103,14 @@
             $result = $this->connection->query($sqlquery);
             while($row = $result->fetch_assoc()){
                 return $row["count(categoryid)"];
+            }
+        }
+
+        public function getProductCount(){
+            $sqlquery = "select count(productid) from products";
+            $result = $this->connection->query($sqlquery);
+            while($row = $result->fetch_assoc()){
+                return $row["count(productid)"];
             }
         }
 

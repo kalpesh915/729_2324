@@ -9,6 +9,13 @@ if(isset($_GET["status"])){
     $product->updateProductStatus($productid, $status);
     header("location:manageproduct");
 }
+
+if(isset($_GET["delete"])){
+    $productid = $product->filterData($_GET["productid"]);
+    $product->deleteProduct($productid);
+    header("location:manageproduct");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -162,7 +169,7 @@ if(isset($_GET["status"])){
     function confirmDelete(productid){
         //alert(productid);
         if(confirm("Are you sure to delete this product ?")){
-            
+            location.assign("manageproduct?delete=1&productid="+productid);
         }
     }
 </script>

@@ -2,6 +2,12 @@
 require_once("commons/session.php");
 require_once("classes/Products.class.php");
 
+/// delete media file
+if(isset($_GET["productimageid"])){
+    $productimageid = $product->filterData($_GET["productimageid"]);
+    $product->deleteMediaFile($productimageid);
+}
+
 $productid = $product->filterData($_GET["productid"]);
 $result = $product->getProduct($productid);
 
@@ -76,7 +82,7 @@ while ($row = $result->fetch_assoc()) {
                                         unset($_SESSION["msg"]);
                                     }
                                     ?>
-                                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+                                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"])."?productid=$productid"; ?>" method="post" enctype="multipart/form-data">
                                         <div id="accordion">
 
                                             <div class="card">
@@ -237,7 +243,7 @@ while ($row = $result->fetch_assoc()) {
                                                                 }else if($mediarow["mediatype"] == 2){
                                                                      echo "<div class='col-md-4 my-2'>
                                                                          <img src='$mediarow[mediapath]' class='mw-100'>
-                                                                         <button type='button' class='btn btn-danger my-1' onclick='deleteMedia($mediarow[productimageid])'>Delete</button>
+                                                                         <button type='button' class='btn btn-danger my-1' onclick='deleteMedia($mediarow[productid],$mediarow[productimageid])'>Delete</button>
                                                                      </div>";
                                                                 }
                                                                 
@@ -289,15 +295,18 @@ while ($row = $result->fetch_assoc()) {
 </body>
 
 <script>
-    function deleteMedia(productid){
-        alert(productid);
+    function deleteMedia(productid, productimageid){
+        //alert(productid);
+        if(confirm("Are you sure to delete this file ?")){
+            location.assign("editproduct?productid="+productid+"&productimageid="+productimageid);
+        }
     }
 </script>
 
 </html>
 
 <?php
-if (isset($_POST["addProcess"])) {
+if (isset($_POST["updateProcess"])) {
     $productname = $product->filterData($_POST["productname"]);
     $productbrandname = $product->filterData($_POST["productbrandname"]);
     $productcategory = $product->filterData($_POST["productcategory"]);
@@ -318,7 +327,7 @@ if (isset($_POST["addProcess"])) {
     $mediafiles = $_FILES["mediafiles"];
 
 
-    $productid = $product->addNewProduct($productname, $productbrandname, $productcategory, $productdescription, $manufacturedate, $productcolor, $productweight, $productsize, $productpackaging, $productmaterial, $productshape, $productcountry, $productmrp, $productdiscount, $returnpolicy, $productwarranty, $minimumorder);
+     $product->updateProduct($productid, $productname, $productbrandname, $productcategory, $productdescription, $manufacturedate, $productcolor, $productweight, $productsize, $productpackaging, $productmaterial, $productshape, $productcountry, $productmrp, $productdiscount, $returnpolicy, $productwarranty, $minimumorder);
 
     //echo "New Product Added with ID $productid";
 
@@ -352,11 +361,11 @@ if (isset($_POST["addProcess"])) {
         }
     }
 
-    $product->logWriter($email, "$productname Product Added ");
+    $product->logWriter($email, "$productname Product Updated");
 
-    $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success : </strong> $productname Product Added in Database Total $count files selected $success files uplaoded on server. $error invalid files.
+    $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible fade show' role='alert'><strong>Success : </strong> $productname Product Updated in Database Total $count files selected $success files uplaoded on server. $error invalid files.
     <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
     <span aria-hidden='true'>&times;</span></button></div>";
-    header("location:addproduct");
+    header("location:editproduct?productid=$productid");
 }
 ?>
