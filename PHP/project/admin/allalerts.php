@@ -81,7 +81,7 @@ require_once("commons/session.php");
                                             </tfoot>
                                             <tbody>
                                                 <?php
-                                                    $result = $counters->getAllLogs();
+                                                    $result = $counters->getAllUnreadLogs();
 
                                                     while($row = $result->fetch_assoc()){
                                                         echo "<tr>
