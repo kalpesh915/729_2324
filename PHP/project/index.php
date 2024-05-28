@@ -1,5 +1,41 @@
 <?php
+session_start();
+ob_start();
 require_once("classes/Client.class.php");
+
+if (isset($_POST["messageProcess"])) {
+    $fname = $client->filterData($_POST["fname"]);
+    $lname = $client->filterData($_POST["lname"]);
+    $senderemail = $client->filterData($_POST["senderemail"]);
+    $phone = $client->filterData($_POST["phone"]);
+    $city = $client->filterData($_POST["city"]);
+    $subject = $client->filterData($_POST["subject"]);
+    $message = $client->filterData($_POST["message"]);
+
+    $client->newMessage($fname, $lname, $senderemail, $phone, $city, $subject, $message);
+
+    $_SESSION["msg"] = "<div class='alert alert-success alert-dismissible'>
+            <button class='btn-close' type='button' data-bs-dismiss='alert'></button>
+            <b>Success : </b> Thanks for Contacting us, we will reach you soon.
+        </div>";
+
+    //header("location:index#contactform");
+}
+
+if (isset($_POST["subscriberProcess"])) {
+    $subscriberemail = $client->filterData($_POST["subscriberemail"]);
+    if ($client->addNewSubscriber($subscriberemail)) {
+        $_SESSION["msg1"] = "<div class='alert alert-success alert-dismissible'>
+            <button class='btn-close' type='button' data-bs-dismiss='alert'></button>
+            <b>Success : </b> $subscriberemail Thanks for Subscriber
+        </div>";
+    } else {
+        $_SESSION["msg1"] = "<div class='alert alert-danger alert-dismissible'>
+            <button class='btn-close' type='button' data-bs-dismiss='alert'></button>
+            <b>Success : </b> $subscriberemail is Already Registered with us
+        </div>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,16 +115,81 @@ require_once("classes/Client.class.php");
     </header><!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center">
+    <section id="hero1" class="d-flex align-items-center w-100">
+        <div class="container-fluid" data-aos="zoom-out" data-aos-delay="100">
+            <!-- Carousel -->
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                <?php
+                    $sliderResult = $client->getSliderImages();
 
-        <div class="container" data-aos="zoom-out" data-aos-delay="100">
-            <div class="row">
+                    $sliderCount = $sliderResult->num_rows;
+
+                    // echo $sliderCount;
+                ?>
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <?php 
+                        for($i=0; $i<$sliderCount-1; $i++){
+                            if($i == 0){
+                                echo "<button type='button' data-bs-target='#demo' data-bs-slide-to='$i' class='active'></button>";
+                            }else{
+                                echo "<button type='button' data-bs-target='#demo' data-bs-slide-to='$i'></button>";
+                            }
+                        }
+                    ?>
+                </div>
+
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner">
+                    <?php 
+                        $i = 0;
+
+                        while($sliderRow = $sliderResult->fetch_assoc()){
+                            if($i==0){
+                                echo "<div class='carousel-item active'>
+                                    <img src='admin/$sliderRow[imagepath]' alt='Los Angeles' class='d-block w-100'>
+                                    <div class='carousel-caption'>
+                                        <h3>$sliderRow[imagetitle]</h3>
+                                        <p>$sliderRow[imagedescription]</p>
+                                    </div>
+                                </div>";    
+                            }else{
+                                echo "<div class='carousel-item'>
+                                    <img src='admin/$sliderRow[imagepath]' alt='Los Angeles' class='d-block w-100'>
+                                    <div class='carousel-caption'>
+                                        <h3>$sliderRow[imagetitle]</h3>
+                                        <p>$sliderRow[imagedescription]</p>
+                                    </div>
+                                </div>";    
+                            }
+                                $i++;
+                        }
+                    ?>
+                    
+                    <div class="carousel-item">
+                        <img src="chicago.jpg" alt="Chicago" class="d-block w-100">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="ny.jpg" alt="New York" class="d-block w-100">
+                    </div>
+                </div>
+
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+
+            <!-- <div class="row">
                 <div class="col-xl-6">
                     <h1>Bettter digital experience with Presento</h1>
                     <h2>We are team of talented designers making websites with Bootstrap</h2>
                     <a href="#about" class="btn-get-started scrollto">Get Started</a>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </section><!-- End Hero -->
@@ -221,11 +322,11 @@ require_once("classes/Client.class.php");
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
                             <?php
-                                $categoryResult = $client->getAllCategory();
+                            $categoryResult = $client->getAllCategory();
 
-                                while($categoryRow = $categoryResult->fetch_assoc()){
-                                    echo "<li data-filter='.filter-$categoryRow[categoryclassname]'>$categoryRow[categoryname]</li>";
-                                }
+                            while ($categoryRow = $categoryResult->fetch_assoc()) {
+                                echo "<li data-filter='.filter-$categoryRow[categoryclassname]'>$categoryRow[categoryname]</li>";
+                            }
                             ?>
                         </ul>
                     </div>
@@ -262,18 +363,18 @@ require_once("classes/Client.class.php");
 
                 <ul class="faq-list accordion" data-aos="fade-up">
                     <?php
-                        $faqResult = $client->getAllFaq();
+                    $faqResult = $client->getAllFaq();
 
-                        while($faqRow = $faqResult->fetch_assoc()){
-                            echo "<li>
+                    while ($faqRow = $faqResult->fetch_assoc()) {
+                        echo "<li>
                             <a data-bs-toggle='collapse' class='collapsed' data-bs-target='#faq$faqRow[faqid]'>$faqRow[question] <i class='bx bx-chevron-down icon-show'></i><i class='bx bx-x icon-close'></i></a>
                             <div id='faq$faqRow[faqid]' class='collapse' data-bs-parent='.faq-list'>
                                 <p>$faqRow[answer]</p>
                             </div>
                         </li>";
-                        }
+                    }
                     ?>
-                    
+
                 </ul>
             </div>
         </section><!-- End Frequently Asked Questions Section -->
@@ -289,25 +390,34 @@ require_once("classes/Client.class.php");
 
                 <div class="row">
 
-                    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-                        <div class="member" data-aos="fade-up" data-aos-delay="100">
-                            <div class="member-img">
-                                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
-                                <div class="social">
-                                    <a href=""><i class="bi bi-twitter"></i></a>
-                                    <a href=""><i class="bi bi-facebook"></i></a>
-                                    <a href=""><i class="bi bi-instagram"></i></a>
-                                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <?php
+                    $teamResult = $client->getTeamMembers();
+
+                    while ($teamRow = $teamResult->fetch_assoc()) {
+                        echo "<div class='col-lg-3 col-md-6 d-flex align-items-stretch'>
+                            <div class='member' data-aos='fade-up' data-aos-delay='100'>
+                                <div class='member-img'>
+                                    <img src='admin/$teamRow[memberphoto]' class='img-fluid' alt=''>
+                                    <div class='social'>";
+                        echo $teamRow["memberfacebook"] != "" ? "<a href='$teamRow[memberfacebook]'><i class='bi bi-facebook'></i></a>" : "";
+                        echo $teamRow["memberinstagram"] != "" ? "<a href='$teamRow[memberinstagram]'><i class='bi bi-instagram'></i></a>" : "";
+                        echo $teamRow["membertwitter"] != "" ? "<a href='$teamRow[membertwitter]'><i class='bi bi-twitter'></i></a>" : "";
+                        echo $teamRow["memberlinkedin"] != "" ? "<a href='$teamRow[memberlinkedin]'><i class='bi bi-linkedin'></i></a>" : "";
+                        echo $teamRow["memberyoutube"] != "" ? "<a href='$teamRow[memberyoutube]'><i class='bi bi-youtube'></i></a>" : "";
+                        echo $teamRow["membersnapchat"] != "" ? "<a href='$teamRow[membersnapchat]'><i class='bi bi-snapchat'></i></a>" : "";
+                        echo $teamRow["membertelegram"] != "" ? "<a href='$teamRow[membertelegram]'><i class='bi bi-telegram'></i></a>" : "";
+                        echo "  </div>
+                                </div>
+                                <div class='member-info'>
+                                    <h4>$teamRow[membername]</h4>
+                                    <span>$teamRow[memberdesignation]</span>
+                                    <span>$teamRow[memberdescription]</span>
                                 </div>
                             </div>
-                            <div class="member-info">
-                                <h4>Walter White</h4>
-                                <span>Chief Executive Officer</span>
-                            </div>
-                        </div>
-                    </div>
+                        </div>";
+                    }
+                    ?>
                 </div>
-
             </div>
         </section><!-- End Team Section -->
 
@@ -337,7 +447,7 @@ require_once("classes/Client.class.php");
                                 <div class="info-box">
                                     <i class="fa fa-user"></i>
                                     <h3>Contact Person</h3>
-                                    <p><?= $address; ?></p>
+                                    <p><?= $contactperson; ?></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -375,28 +485,44 @@ require_once("classes/Client.class.php");
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-12">
-                        <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <div class="my-3">
+                        <?php
+                        if (isset($_SESSION["msg"])) {
+                            echo $_SESSION["msg"];
+                            unset($_SESSION["msg"]);
+                        }
+                        ?>
+                    </div>
+                    <div class="col-lg-12" id="contactform">
+
+                        <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="php-email-form">
                             <div class="row">
                                 <div class="col form-group">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                                    <input type="text" name="fname" class="form-control" id="fname" placeholder="Enter First Name" required>
                                 </div>
                                 <div class="col form-group">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                                    <input type="text" name="lname" class="form-control" id="lname" placeholder="Enter Last Name" required>
                                 </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <input type="email" name="senderemail" class="form-control" id="senderemail" placeholder="Enter Email Address" required>
+                                </div>
+                                <div class="col form-group">
+                                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter Phone Number" required pattern="[0-9]{10,15}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="city" id="city" placeholder="Enter City Name" required>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                <textarea class="form-control" name="message" rows="5" placeholder="Message" required style="resize: none;"></textarea>
                             </div>
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
-                            <div class="text-center"><button type="submit">Send Message</button></div>
+
+                            <div class="text-center"><button type="submit" name="messageProcess">Send Message</button></div>
                         </form>
                     </div>
 
@@ -418,7 +544,7 @@ require_once("classes/Client.class.php");
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <!-- <script src="assets/vendor/php-email-form/validate.js"></script> -->
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>

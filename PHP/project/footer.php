@@ -34,8 +34,14 @@
         <div class="col-lg-4 col-md-6 footer-newsletter">
           <h4>Join Our Newsletter</h4>
           <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-          <form action="" method="post">
-            <input type="email" name="email"><input type="submit" value="Subscribe">
+          <?php 
+            if(isset($_SESSION["msg1"])){
+              echo $_SESSION["msg1"];
+              unset($_SESSION["msg1"]);
+            }
+          ?>
+          <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <input type="email" name="subscriberemail" required><input type="submit" value="Subscribe" name="subscriberProcess">
           </form>
         </div>
 
