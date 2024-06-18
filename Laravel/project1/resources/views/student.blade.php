@@ -1,0 +1,1 @@
+<h1>This is Student Blade file your id is {{ $id }}</h1>
