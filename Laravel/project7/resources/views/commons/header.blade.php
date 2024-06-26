@@ -1,0 +1,1 @@
+<h1 class="bg-dark text-white p-4 text-center">Welcome to Layout Example</h1>

@@ -1,0 +1,2 @@
+<h1 class="bg-warning text-white p-4">This is Sidebar </h1>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum quidem dignissimos excepturi? Assumenda architecto numquam dicta odit ut? Quae officia quos velit consectetur obcaecati ratione dicta reprehenderit harum, iusto officiis. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus corrupti veritatis aperiam libero illo atque fugit sed, est nam quas! Hic laborum earum assumenda neque quasi ducimus, obcaecati ex quisquam!</p>
