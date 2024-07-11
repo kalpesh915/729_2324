@@ -3,6 +3,11 @@ session_start();
 ob_start();
 require_once("classes/Client.class.php");
 
+$settingsResult = $client->readSettings();
+$settingsRow = $settingsResult->fetch_assoc();
+extract($settingsRow);
+
+
 if (isset($_POST["messageProcess"])) {
     $fname = $client->filterData($_POST["fname"]);
     $lname = $client->filterData($_POST["lname"]);
@@ -36,6 +41,47 @@ if (isset($_POST["subscriberProcess"])) {
         </div>";
     }
 }
+
+if (isset($_POST["applyProcess"])) {
+    $fname = $client->filterData($_POST["fname"]);
+    $lname = $client->filterData($_POST["lname"]);
+    $gender = $client->filterData($_POST["gender"]);
+    $dateofbirth = $client->filterData($_POST["dateofbirth"]);
+    $jobposition = $client->filterData($_POST["jobposition"]);
+    $education = $client->filterData($_POST["education"]);
+    $experience = $client->filterData($_POST["experience"]);
+    $phone = $client->filterData($_POST["phone"]);
+    $emailaddress = $client->filterData($_POST["emailaddress"]);
+    $address = $client->filterData($_POST["address"]);
+    $coverlatter = $client->filterData($_POST["coverlatter"]);
+
+    $resumefile = $_FILES["resumefile"];
+
+    $name = $resumefile["name"];
+    $type = $resumefile["type"];
+    $random = rand(9999, 99999);
+    $date = date("dmY_Hisa");
+    $source = $resumefile["tmp_name"];
+
+    if ($type === "application/pdf") {
+        $destination = "resumes/$random $date $emailaddress $name";
+
+        $client->newJobApplication($fname, $lname, $gender, $dateofbirth, $jobposition, $education, $experience, $phone, $emailaddress, $address, $coverlatter, $destination);
+
+        move_uploaded_file($source, "admin/$destination");
+        $_SESSION["msg1"] = "<div class='alert alert-success alert-dismissible'>
+            <button class='btn-close' data-bs-dismiss='alert'></button>
+            <strong>Success : </strong> Thanks for apply we will contact you soon.
+        </div>";
+    } else {
+        $_SESSION["msg1"] = "<div class='alert alert-danger alert-dismissible'>
+            <button class='btn-close' data-bs-dismiss='alert'></button>
+            <strong>Error : </strong> Must select .PDF files Only.
+        </div>";
+    }
+
+    header("location:index");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,9 +90,28 @@ if (isset($_POST["subscriberProcess"])) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Presento Bootstrap Template - Index</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <title>Project</title>
+    <?php
+    $metaResult = $client->getMetaDetails();
+    $metaRow = $metaResult->fetch_assoc();
+
+    extract($metaRow);
+    ?>
+    <meta content="<?= $metadescription; ?>" name="description">
+    <meta content="<?= $metakeywords; ?>" name="keywords">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?= $googletagid; ?>"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments)
+        };
+        gtag('js', new Date());
+        gtag('config', "<?= $googletagid; ?>");
+    </script>
+
+
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon">
@@ -77,9 +142,6 @@ if (isset($_POST["subscriberProcess"])) {
     <header id="header" class="fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center">
             <h1 class="logo me-auto"><a href="index.html">Presento<span>.</span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt=""></a>-->
-
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
@@ -87,30 +149,16 @@ if (isset($_POST["subscriberProcess"])) {
                     <li><a class="nav-link scrollto" href="#services">Services</a></li>
                     <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
                     <li><a class="nav-link scrollto" href="#team">Team</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-                        <ul>
-                            <li><a href="#">Drop Down 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                                <ul>
-                                    <li><a href="#">Deep Drop Down 1</a></li>
-                                    <li><a href="#">Deep Drop Down 2</a></li>
-                                    <li><a href="#">Deep Drop Down 3</a></li>
-                                    <li><a href="#">Deep Drop Down 4</a></li>
-                                    <li><a href="#">Deep Drop Down 5</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">Drop Down 2</a></li>
-                            <li><a href="#">Drop Down 3</a></li>
-                            <li><a href="#">Drop Down 4</a></li>
-                        </ul>
-                    </li>
+                    <li><a class="nav-link scrollto" href="#gallery">Gallery</a></li>
+                    <?php 
+                        if($careeroption == 1){
+                           echo "<li><a class='nav-link scrollto' href='#career'>Career</a></li>";
+                        }
+                    ?>
                     <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
-
-            <a href="#about" class="get-started-btn scrollto">Get Started</a>
         </div>
     </header><!-- End Header -->
 
@@ -120,58 +168,51 @@ if (isset($_POST["subscriberProcess"])) {
             <!-- Carousel -->
             <div id="demo" class="carousel slide" data-bs-ride="carousel">
                 <?php
-                    $sliderResult = $client->getSliderImages();
+                $sliderResult = $client->getSliderImages();
 
-                    $sliderCount = $sliderResult->num_rows;
+                $sliderCount = $sliderResult->num_rows;
 
-                    // echo $sliderCount;
+                //echo $sliderCount;
                 ?>
                 <!-- Indicators/dots -->
                 <div class="carousel-indicators">
-                    <?php 
-                        for($i=0; $i<$sliderCount-1; $i++){
-                            if($i == 0){
-                                echo "<button type='button' data-bs-target='#demo' data-bs-slide-to='$i' class='active'></button>";
-                            }else{
-                                echo "<button type='button' data-bs-target='#demo' data-bs-slide-to='$i'></button>";
-                            }
+                    <?php
+                    for ($i = 0; $i < $sliderCount; $i++) {
+                        if ($i == 0) {
+                            echo "<button type='button' data-bs-target='#demo' data-bs-slide-to='$i' class='active'></button>";
+                        } else {
+                            echo "<button type='button' data-bs-target='#demo' data-bs-slide-to='$i'></button>";
                         }
+                    }
                     ?>
                 </div>
 
                 <!-- The slideshow/carousel -->
                 <div class="carousel-inner">
-                    <?php 
-                        $i = 0;
+                    <?php
+                    $i = 0;
 
-                        while($sliderRow = $sliderResult->fetch_assoc()){
-                            if($i==0){
-                                echo "<div class='carousel-item active'>
+                    while ($sliderRow = $sliderResult->fetch_assoc()) {
+                        if ($i == 0) {
+                            echo "<div class='carousel-item active'>
                                     <img src='admin/$sliderRow[imagepath]' alt='Los Angeles' class='d-block w-100'>
                                     <div class='carousel-caption'>
                                         <h3>$sliderRow[imagetitle]</h3>
                                         <p>$sliderRow[imagedescription]</p>
                                     </div>
-                                </div>";    
-                            }else{
-                                echo "<div class='carousel-item'>
+                                </div>";
+                        } else {
+                            echo "<div class='carousel-item'>
                                     <img src='admin/$sliderRow[imagepath]' alt='Los Angeles' class='d-block w-100'>
                                     <div class='carousel-caption'>
                                         <h3>$sliderRow[imagetitle]</h3>
                                         <p>$sliderRow[imagedescription]</p>
                                     </div>
-                                </div>";    
-                            }
-                                $i++;
+                                </div>";
                         }
+                        $i++;
+                    }
                     ?>
-                    
-                    <div class="carousel-item">
-                        <img src="chicago.jpg" alt="Chicago" class="d-block w-100">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="ny.jpg" alt="New York" class="d-block w-100">
-                    </div>
                 </div>
 
                 <!-- Left and right controls/icons -->
@@ -333,20 +374,26 @@ if (isset($_POST["subscriberProcess"])) {
                 </div>
 
                 <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+                    <?php
+                    $productsResult = $client->getProducts();
 
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-                            <div class="portfolio-info">
-                                <h4>App 1</h4>
-                                <p>App</p>
-                                <div class="portfolio-links">
-                                    <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                    while ($productsRow = $productsResult->fetch_assoc()) {
+                        $mediapath = $client->getProductImage($productsRow["productid"]);
+                        echo "<div class='col-lg-4 col-md-6 portfolio-item filter-$productsRow[categoryclassname]'>
+                                <div class='portfolio-wrap'>
+                                    <img src='admin/$mediapath' class='img-fluid' alt=''>
+                                    <div class='portfolio-info'>
+                                        <h4>$productsRow[productname]</h4>
+                                        <p>$productsRow[categoryname]</p>
+                                        <div class='portfolio-links'>
+                                            <a href='admin/$mediapath' data-gallery='portfolioGallery' class='portfolio-lightbox' title='$productsRow[productname]'><i class='bx bx-plus'></i></a>
+                                            <a href='portfolio-details?productid=$productsRow[productid]' title='More Details'><i class='bx bx-link'></i></a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+                            </div>";
+                    }
+                    ?>
                 </div>
 
             </div>
@@ -394,7 +441,7 @@ if (isset($_POST["subscriberProcess"])) {
                     $teamResult = $client->getTeamMembers();
 
                     while ($teamRow = $teamResult->fetch_assoc()) {
-                        echo "<div class='col-lg-3 col-md-6 d-flex align-items-stretch'>
+                        echo "<div class='col-lg-4 col-md-6 d-flex align-items-stretch'>
                             <div class='member' data-aos='fade-up' data-aos-delay='100'>
                                 <div class='member-img'>
                                     <img src='admin/$teamRow[memberphoto]' class='img-fluid' alt=''>
@@ -420,6 +467,137 @@ if (isset($_POST["subscriberProcess"])) {
                 </div>
             </div>
         </section><!-- End Team Section -->
+
+        <!-- ======= Team Section ======= -->
+        <section id="gallery" class="team">
+            <div class="container" data-aos="fade-up">
+
+                <div class="section-title">
+                    <h2>Gallery</h2>
+                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
+                </div>
+
+                <div class="row">
+
+                    <?php
+                    $galleryResult = $client->getGalleryImages();
+
+                    while ($galleryRow = $galleryResult->fetch_assoc()) {
+                        echo "<div class='col-lg-4 col-md-6 portfolio-item'>
+                                <div class='portfolio-wrap'>
+                                <a href='admin/$galleryRow[imagepath]' data-gallery='portfolioGallery' class='portfolio-lightbox' title='$galleryRow[imagetitle]'>
+                                    <img src='admin/$galleryRow[imagepath]' class='img-fluid' alt=''>
+                                    <div class='portfolio-info'>
+                                        <h4>$galleryRow[imagetitle]</h4>
+                                        <p>$galleryRow[imagedescription]</p>
+                                        <div class='portfolio-links'>    
+                                        </div>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>";
+                    }
+                    ?>
+                </div>
+            </div>
+        </section><!-- End Team Section -->
+
+        <!-- ======= Team Section ======= -->
+        <section id="career" class="team <?= $careeroption == 0 ? 'collapse' : ''; ?>" >
+
+            <div class="container" data-aos="fade-up">
+                <?php
+                if (isset($_SESSION["msg1"])) {
+                    echo $_SESSION["msg1"];
+                    unset($_SESSION["msg1"]);
+                }
+                ?>
+                
+                <div class="section-title">
+                    <h2>Career</h2>
+                    <p>Apply for Various opening at Project</p>
+                </div>
+
+                <div class="row">
+                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
+                        <div class="my-2 form-floating">
+                            <input type="text" name="fname" id="fname" required class="form-control" placeholder="Enter First Name">
+                            <label for="fname">Enter First Name</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <input type="text" name="lname" id="lname" required class="form-control" placeholder="Enter Last Name">
+                            <label for="lname">Enter Last Name</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <select name="gender" id="gender" required class="form-control" placeholder="Select Gender">
+                                <option></option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <label for="gender">Select Gender</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <input type="date" name="dateofbirth" id="dateofbirth" required class="form-control" placeholder="Select Date of Birth">
+                            <label for="dateofbirth">Select Date of Birth</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <input type="text" name="jobposition" id="jobposition" required class="form-control" placeholder="Enter Job Position">
+                            <label for="jobposition">Enter Job Position</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <select name="education" id="education" required class="form-control" placeholder="Select Education">
+                                <option></option>
+                                <option value="under10">Under 10th</option>
+                                <option value="10th">10th</option>
+                                <option value="12th">12th</option>
+                                <option value="graduation">Graduation</option>
+                                <option value="post graduation">Post Graduation</option>
+                                <option value="masters">Masters</option>
+                                <option value="other">other</option>
+                            </select>
+                            <label for="education">Select Education</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <select name="experience" id="experience" required class="form-control" placeholder="Select Experience">
+                                <option></option>
+                                <option value="fresher">Fresher</option>
+                                <option value="1">1 Year</option>
+                                <option value="2">2 Years</option>
+                                <option value="3+">3+ Years</option>
+                                <option value="5+">5+ Years</option>
+                                <option value="10+">10+ Years</option>
+                                <option value="other">other</option>
+                            </select>
+                            <label for="experience">Select Experience</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <input type="phone" name="phone" id="phone" required class="form-control" placeholder="Enter Phone Number" pattern="[0-9]{10,15}">
+                            <label for="phone">Enter Phone Number</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <input type="email" name="emailaddress" id="emailaddress" required class="form-control" placeholder="Enter Email Address">
+                            <label for="emailaddress">Enter Email Address</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <textarea name="address" id="address" class="form-control" required style="resize: none; height: 150px;"></textarea>
+                            <label for="address">Enter Address</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <textarea name="coverlatter" id="coverlatter" class="form-control" required style="resize: none; height: 250px;"></textarea>
+                            <label for="coverlatter">Write Cover Latter for Job Profile</label>
+                        </div>
+                        <div class="my-2 form-floating">
+                            <input type="file" name="resumefile" id="resumefile" class="form-control" required accept=".pdf" placeholder="Select Resume File">
+                            <label for="resumefile">Select Resume File</label>
+                        </div>
+                        <div class="my-2">
+                            <input type="submit" value="Apply Now" class="btn btn-primary" name="applyProcess">
+                            <input type="reset" value="Reset" class="btn btn-danger">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section><!-- End Career Section -->
 
         <!-- ======= Contact Section ======= -->
         <section id="contact" class="contact">

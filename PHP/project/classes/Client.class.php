@@ -56,6 +56,52 @@
             $sqlquery = "select * from images where imagetype = 1 and status = 1";
             return $this->connection->query($sqlquery);
         }
+
+        public function getGalleryImages(){
+            $sqlquery = "select * from images where imagetype = 2 and status = 1";
+            return $this->connection->query($sqlquery);
+        }
+
+        public function getProducts(){
+            //$sqlquery = "select products.productid, products.productname, categorys.categoryname, categorys.categoryclassname, productimages.mediapath from products join categorys on products.productcategory = categorys.categoryid join productimages on products.productid = productimages.productid where products.status = 1";
+
+            $sqlquery = "select products.productid, products.productname, categorys.categoryname, categorys.categoryclassname from products join categorys on products.productcategory = categorys.categoryid where products.status = 1";
+
+            return $this->connection->query($sqlquery);
+        }
+
+        public function getProductImage($productid){
+            $sqlquery = "select mediapath from productimages where productid = $productid and mediatype = 2 limit 1";
+            $result = $this->connection->query($sqlquery);
+            while($mediarow = $result->fetch_assoc()){
+                return $mediarow["mediapath"];
+            }
+        }
+
+        public function getProduct($productid){
+            $sqlquery = "SELECT products.*, categorys.categoryname from products inner join categorys on products.productcategory = categorys.categoryid WHERE products.productid = $productid";
+            return $this->connection->query($sqlquery);
+        }
+
+        public function getProductMedia($productid){
+            $sqlquery = "select * from productimages where productid = $productid";
+            return $this->connection->query($sqlquery);
+        }
+
+        public function newJobApplication($fname, $lname, $gender, $dateofbirth, $jobposition, $education, $experience, $phone, $emailaddress, $address, $coverlatter, $resumepath){
+            $sqlquery = "insert into career (fname, lname, gender, dateofbirth, jobposition, education, experience, phone, emailaddress, address, coverlatter, resumepath) values ('$fname', '$lname', '$gender', '$dateofbirth', '$jobposition', '$education', '$experience', '$phone', '$emailaddress', '$address', '$coverlatter', '$resumepath')";
+            $this->connection->query($sqlquery);
+        }
+
+        public function getMetaDetails(){
+            $sqlquery = "select * from metatags where metaid = 1";
+            return $this->connection->query($sqlquery);
+        }
+
+        public function readSettings(){
+            $sqlquery = "select * from settings where settingid = 1";
+            return $this->connection->query($sqlquery);
+        }
     }
 
     $client = new Client();

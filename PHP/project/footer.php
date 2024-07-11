@@ -34,17 +34,34 @@
         <div class="col-lg-4 col-md-6 footer-newsletter">
           <h4>Join Our Newsletter</h4>
           <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-          <?php 
-            if(isset($_SESSION["msg1"])){
-              echo $_SESSION["msg1"];
-              unset($_SESSION["msg1"]);
-            }
+          <?php
+          if (isset($_SESSION["msg1"])) {
+            echo $_SESSION["msg1"];
+            unset($_SESSION["msg1"]);
+          }
           ?>
           <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <input type="email" name="subscriberemail" required><input type="submit" value="Subscribe" name="subscriberProcess">
           </form>
         </div>
+        <div>
 
+        <?php 
+          if($googletranslate == 1){
+            echo "<div id='google_translate_element'></div>";
+          }
+        ?>
+
+          <script type="text/javascript">
+            function googleTranslateElementInit() {
+              new google.translate.TranslateElement({
+                pageLanguage: 'en'
+              }, 'google_translate_element');
+            }
+          </script>
+
+          <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </div>
       </div>
     </div>
   </div>
