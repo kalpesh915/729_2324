@@ -139,7 +139,7 @@
         }
 
         public function getNewResumeCount(){
-            $sqlquery = "select count(applicationid) from career";
+            $sqlquery = "select count(applicationid) from career where status = 0";
             $result = $this->connection->query($sqlquery);
             while($row = $result->fetch_assoc()){
                 return $row["count(applicationid)"];

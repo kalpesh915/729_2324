@@ -52,6 +52,7 @@
             $sqlquery = "update adminusers set password = '$newpassword' where email = '$email'";
             $this->connection->query($sqlquery);
         }
+        
     }
 
     $forgot = new Forgot();
