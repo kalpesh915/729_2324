@@ -103,7 +103,7 @@ class studentsController extends Controller
                 "fname" => "required",
                 "lname" => "required",
                 "city" => "required",
-                "email" => "required|email|unique:students,email",
+                "email" => "required|email",
                 "phone" => "required|numeric|digits:10",
                 "gender" => "required|in:male,female",
                 "age" => "required|numeric|min:0|max:100"
@@ -135,7 +135,7 @@ class studentsController extends Controller
             }
         }else{
             return response([
-                "code" => 401,
+                "code" => 404,
                 "status" => false,
                 "message" => "No Student Found for Update on $id ID"
             ]);

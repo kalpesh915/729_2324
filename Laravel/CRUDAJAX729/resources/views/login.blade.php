@@ -66,7 +66,7 @@
                         window.location.href = '/home';
                     } else if (response.code === 401) {
                         console.log(response);
-                        let errorMessages = "";
+                        let errorMessages = ""+response.message;
                         for (let err in response.errors) {
                             errorMessages += "<b>" + err + "</b> : " + response.errors[err][
                                 0
