@@ -1,0 +1,24 @@
+<Rajkot>
+    <Students>
+        <Student>
+            <Roll>1</Roll>
+            <Fname>Gaurav</Fname>
+            <Lname>Pandya</Lname>
+            <City>Rajkot</City>
+        </Student>
+
+        <Student>
+            <Roll>2</Roll>
+            <Fname>Udit</Fname>
+            <Lname>Ghetiya</Lname>
+            <City>Rajkot</City>
+        </Student>
+
+        <Student>
+            <Roll>3</Roll>
+            <Fname>Bhavdeep</Fname>
+            <Lname>Sorathiy</Lname>
+            <City>Rajkot</City>
+        </Student>
+    </Students>
+</Rajkot>
