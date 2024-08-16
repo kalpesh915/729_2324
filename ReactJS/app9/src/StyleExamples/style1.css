@@ -1,0 +1,13 @@
+.heading{
+    background-color: black;
+    color: white;
+    padding: 20px;
+    text-transform: capitalize;
+}
+
+.content{
+    text-align: center;
+    padding: 20px;
+    background-color: orangered;
+    color: white;
+}
