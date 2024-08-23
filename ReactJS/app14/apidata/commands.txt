@@ -1,0 +1,30 @@
+  command for resolve 
+  json-server : File C:\Users\hp\AppData\Roaming\npm\json-server.ps1 cannot be loaded because running scripts is disabled on this 
+system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+At line:1 char:1
++ json-server --watch .\myapi.json
++ ~~~~~~~~~~~
+    + CategoryInfo          : SecurityError: (:) [], PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+
+==>  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser  
+
+
+run json server
+open folder where you store json file
+
+cd apidata
+==> json-server --watch .\myapi.json
+
+leave terminal as usual run
+
+open new terminal
+
+npm start
+
+? Something is already running on port 3000.
+
+Would you like to run the app on another port instead? » (Y/n)
+
+
+press yes.

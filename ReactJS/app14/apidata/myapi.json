@@ -1,0 +1,24 @@
+{
+  "students": [
+    {
+      "id": "e0e6",
+      "fname": "BHalabhai",
+      "lname": "Bavaliya"
+    },
+    {
+      "id": "0b72",
+      "fname": "neel",
+      "lname": "patel"
+    },
+    {
+      "id": "f71c",
+      "fname": "yadav",
+      "lname": "yagnik"
+    },
+    {
+      "id": "1d94",
+      "fname": "demo",
+      "lname": "text"
+    }
+  ]
+}
