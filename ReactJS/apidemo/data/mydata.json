@@ -1,0 +1,36 @@
+{
+  "students": [
+    {
+      "fname": "Adarsh",
+      "lname": "chavda",
+      "city": "Diu",
+      "email": "adarsh@gmail.com",
+      "phone": "9900990099",
+      "id": "7dee"
+    },
+    {
+      "fname": "bhavdeep",
+      "lname": "sorathiya",
+      "city": "baroda",
+      "email": "bhavdeep@gmail.co.in",
+      "phone": "9090009090",
+      "id": "6660"
+    },
+    {
+      "id": "ee61",
+      "fname": "demo",
+      "lname": "asd",
+      "city": "rajkot",
+      "email": "udit@gmail.com",
+      "phone": "9900990099"
+    },
+    {
+      "id": "1b18",
+      "fname": "sample",
+      "lname": "code",
+      "city": "ahamdabad",
+      "email": "udit@gmail.com",
+      "phone": "9900990099"
+    }
+  ]
+}
