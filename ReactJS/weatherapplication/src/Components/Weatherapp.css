@@ -1,0 +1,50 @@
+.weather-app {
+    background-image: url('https://images.unsplash.com/photo-1529982967225-0d71f5ee8dd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    min-height: 100vh;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.weather-icon {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    font-size: 1.5rem;
+}
+
+.input-group button {
+    font-size: 1.5rem;
+    transition: background 0.3s ease;
+}
+
+.input-group button:hover {
+    background-color: #0056b3;
+    transition: background 0.3s ease;
+}
+
+h1, h3, h5 {
+    color: white;
+}
+
+i {
+    margin-right: 10px;
+}

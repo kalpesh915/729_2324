@@ -1,0 +1,12 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css");
+
+.info{
+    text-align: center;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.icon{
+    font-size: 70px;
+    text-align: center;
+}
