@@ -1,0 +1,1 @@
+print("|| Shree Ganeshay Namah: ||")
