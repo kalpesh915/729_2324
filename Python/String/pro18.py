@@ -1,0 +1,7 @@
+print("ip1".isidentifier())
+print("ip 1".isidentifier())
+print("1ip".isidentifier())
+print("ip*1".isidentifier())
+print("if".isidentifier())
+print("ip+1".isidentifier())
+print("ip_1".isidentifier())

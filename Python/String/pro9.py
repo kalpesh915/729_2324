@@ -1,0 +1,1 @@
+print("Welcome %s to %s your is is %d marks is %f"%("Udit", "Rajkot", 1, 89.90))
