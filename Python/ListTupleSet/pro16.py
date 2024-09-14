@@ -1,0 +1,6 @@
+data = ()
+print(data, type(data))
+data = (15)
+print(data, type(data))
+data = (15,)
+print(data, type(data))
