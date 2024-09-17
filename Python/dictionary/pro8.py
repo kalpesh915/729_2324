@@ -1,14 +1,9 @@
-studentData = {
-    "roll": 1,
-    "fname": "Udit",
-    "lname": "Ghetiya",
-    "city": "Rajkot",
-    "age": 22,
-    "salary": 19800,
-    "married": False,
-    "qualification": ["10th", "12th", "BSC", "MSC"],
-}
+# required argument
 
-for x in studentData:
-    #print(x)
-    print(studentData[x])
+def sum(x, y):
+    print(x + y)
+
+sum()
+#sum(11, 22)
+#sum(11)
+#sum(11, 22, 33)

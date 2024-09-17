@@ -1,0 +1,6 @@
+data = (11, 22, 33)
+print(data, type(data))
+data = list(data)
+print(data, type(data))
+data = tuple(data)
+print(data, type(data))

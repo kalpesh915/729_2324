@@ -1,13 +1,8 @@
-studentData = {
-    "roll": 1,
-    "fname": "Udit",
-    "lname": "Ghetiya",
-    "city": "Rajkot",
-    "age": 22,
-    "salary": 19800,
-    "married": False,
-    "qualification": ["10th", "12th", "BSC", "MSC"],
-}
+def sum(ip1, ip2):
+    return  ip1 + ip2
 
-studentData.pop("fname")
-print(studentData)
+a = int(input("Enter value for ip1 \t"))
+b = int(input("Enter value for ip2 \t"))
+
+ans = sum(a, b)
+print("Sum is ", ans)

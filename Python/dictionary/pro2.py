@@ -1,6 +1,5 @@
-data = dict([
-    ["fname", "Gaurav"],
-    ["lname", "Pandya"]
-])
+printer()
 
-print(data)
+def printer():
+    print("Welcome to world of Functions with Python")
+

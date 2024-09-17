@@ -1,0 +1,5 @@
+print(format(123, "d"))
+print(format(123, "f"))
+print(format("123", "s"))
+print(format(123, "b"))
+print(format(123, "x"))

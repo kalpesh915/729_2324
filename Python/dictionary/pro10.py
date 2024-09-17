@@ -1,13 +1,4 @@
-studentData = {
-    "roll": 1,
-    "fname": "Udit",
-    "lname": "Ghetiya",
-    "city": "Rajkot",
-    "age": 22,
-    "salary": 19800,
-    "married": False,
-    "qualification": ["10th", "12th", "BSC", "MSC"],
-}
+def printer(name, roll):
+    print("Welcome",name,"your roll no. is",roll)
 
-for key, value in studentData.items():
-    print(key, "is", value)
+printer("Bhalabhai", 11)
