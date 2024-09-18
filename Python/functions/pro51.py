@@ -1,0 +1,5 @@
+print(ord('5'))
+print(ord('A'))
+print(ord('a'))
+print(ord(' '))
+print(ord('|'))

@@ -1,0 +1,5 @@
+print(float(10))
+print(float(10.10))
+print(float(-10.29))
+print(float(   -10.111))
+print(float("rajkot"))
